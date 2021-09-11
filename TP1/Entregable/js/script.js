@@ -107,8 +107,7 @@ function setImage(e) { //Setea la imagen en el canvas
 }
 
 function drawAllCircles() { //Dibuja todos los circulos de vuelta, con sus lineas
-    for (let i = 0; i < allCircles.length; i++) {
-        console.log(allCircles);
+    for (let i = 0; i < allCircles.length; i++) {W
         for (let j = 0; j < allCircles[i].length; j++) {
             let elem = allCircles[i][j];
             if (j>0) {  
