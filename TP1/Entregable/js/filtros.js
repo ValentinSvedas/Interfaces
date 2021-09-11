@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 class Filtros{
     constructor(cwidth,cheight,ctx,canvas){
         this.width = cwidth;
@@ -59,3 +59,4 @@ function setPixel(imageData, x, y, r, g, b, a) {
     imageData.data[index + 2] = b;
     imageData.data[index + 3] = a;
 }
+*/
