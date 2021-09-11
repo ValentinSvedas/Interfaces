@@ -214,12 +214,12 @@ function filtrodegris() {
 
         let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
     
-        for ( let x = 0; x < imageData.width; x++){
-            for (let y = 0; y < imageData.height; y++){
-                let index = ( x + y * imageData.width) * 4;
-                let r = 255 - imageData.data[index];    //sentencia que invierte los valores en R.
-                let g = 255 - imageData.data[index+1];  //sentencia que invierte los valores en G.
-               let b = 255 - imageData.data[index+2];   //sentencia que invierte los valores en B.
+        for ( let x = 0; x<imageData.width; x++){
+            for (let y = 0; y<imageData.height; y++){
+                let index = (x+y*imageData.width)*4;
+                let r =255-imageData.data[index];    //sentencia que invierte los valores en R.
+                let g =255-imageData.data[index+1];  //sentencia que invierte los valores en G.
+               let b =255-imageData.data[index+2];   //sentencia que invierte los valores en B.
                 setPixel(imageData,x,y,r,g,b,255);
             }
         } 
@@ -230,50 +230,51 @@ function filtrodegris() {
         //en esta funcion se inplemeta el filtro sepia, en la cual si se cliquea varias veces en el boton, 
         //el filtro se ira aplicando cada vez mas a la imagen hasta que los valores R,G,B hastas acercarse a 255.
 
-        let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
       
-        for ( let x = 0; x < imageData.width; x++){
-            for (let y = 0; y < imageData.height; y++){
+        for ( let x=0;x<imageData.width;x++){
+            for (let y=0;y<imageData.height;y++){
                 
-                let index = ( x + y * imageData.width) * 4;
+                let index=(x+y*imageData.width)*4;
                 
-                let r = imageData.data[index];
-                let g = imageData.data[index+1];
-                let b = imageData.data[index+2];
-    
-                let tr = 0.393 * r + 0.769 * g + 0.189 * b;     //se le introducen los valores a R,G,B para volver la tonalidad sepia.
-                let tg = 0.349 * r + 0.686 * g + 0.168 * b;
-                let tb = 0.272 * r + 0.534 * g + 0.131 * b;
+                let r=imageData.data[index];
+                let g=imageData.data[index+1];
+                let b=imageData.data[index+2];
 
-                if (tr > 255) {
-                    r = 255;
-                } else {
-                    r = tr;
+                //se le introducen los valores a R,G,B para volver la tonalidad sepia.
+                let tr=0.393*r+0.769*g+0.189*b;     
+                let tg=0.349*r+0.686*g+0.168*b;
+                let tb=0.272*r+0.534*g+0.131*b;
+
+                if(tr>255) {
+                    r=255;
+                }else{
+                    r=tr;
                 }
     
-                if (tg > 255) {
-                    g = 255;
+                if (tg>255) {
+                    g=255;
                 } else {
-                    g = tg;
+                    g=tg;
                 }
     
-                if (tb > 255) {
-                    b = 255;
+                if (tb>255) {
+                    b=255;
                 } else {
-                    b = tb;
+                    b=tb;
                 }
     
                 setPixel(imageData,x,y,r,g,b,255);
             }
         }
-        ctx.putImageData(imageData, 0, 0);
+        ctx.putImageData(imageData,0,0);
     }
 
     function blur() {
-        let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
         let red,green,blue;
-        for ( let x = 0; x < imageData.width; x++){
-            for (let y = 0; y < imageData.height; y++){
+        for ( let x =0; x<imageData.width; x++){
+            for (let y =0;y<imageData.height; y++){
                 if (!(x+1==canvas.width || y+1==canvas.height || x<1 || y<1)) {         
                     red = avgRed(imageData, x, y)/9;
                     green = avgGreen(imageData, x, y)/9;
@@ -282,7 +283,7 @@ function filtrodegris() {
                 }
             }
         }
-        ctx.putImageData(imageData, 0, 0);
+        ctx.putImageData(imageData,0,0);
     }
     
     function avgRed(imageData,x,y) {
@@ -324,6 +325,50 @@ function filtrodegris() {
         prom += getBlue(imageData,x-1,y+1);
         return prom;
     }
+
+    function filtroBinarizacion() {
+    // esta funcion lo que realiza es tomar los valores provenientes 
+    //de las funciones llamadas y en cada caso se setea, dependiendo de lo resivido  para luego mostrarlo.
+        let imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+   
+        for ( let x=0;x<imageData.width; x++){
+            for (let y=0;y<imageData.height; y++){
+                let AVG=avgRGB(imageData,x,y);
+                let r=binarycolor(AVG);
+                let g=binarycolor(AVG);
+                let b=binarycolor(AVG);
+                setPixel(imageData,x,y,r,g,b,255);
+            }
+        }
+        ctx.putImageData(imageData,0,0);
+    }
+
+    function avgRGB(imageData,x,y) {
+        //funcion la cual nos dara un promedio de los colores y los pasa a la funcion principal.
+        let index=(x+y*imageData.width)*4;
+        let sum=0;
+        sum +=imageData.data[index+0];
+        sum +=imageData.data[index+1];
+        sum +=imageData.data[index+2];
+        return sum/3;
+    }
+    
+    function binarycolor(color) {
+        //funcion la cual al color dado en la funcion anterior se se lo califica
+        // dependiendo si es <255/2 sera RGB=0,0,0 y si no RGB=255,255,255. Luego lo pasa a funcion principal.
+        if(color<255/2){
+            return 0;
+        }
+        return 255;
+    }
+    
+  
+
+
+
+
+
+document.querySelector("#binarizacion").addEventListener("click",filtroBinarizacion);
 document.querySelector("#blur").addEventListener("click",blur);
 document.querySelector("#filtroSepia").addEventListener("click",filtroSepia);
 document.querySelector("#filtroNegativo").addEventListener("click",filtroNegativo);
