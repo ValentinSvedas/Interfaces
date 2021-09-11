@@ -361,9 +361,14 @@ function filtrodegris() {
         }
         return 255;
     }
-    
   
 
+    function descargar(){
+    let download=document.getElementById("descarga");
+    let image=canvas.toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+    download.setAttribute("href", image);
+    }
 
 
 
