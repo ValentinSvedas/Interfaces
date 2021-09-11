@@ -152,6 +152,65 @@ function isInside(circle) {
 }
 */
 
+function blur() {
+    let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let red,green,blue;
+    for ( let x = 0; x < imageData.width; x++){
+        for (let y = 0; y < imageData.height; y++){
+            if (!(x+1==canvas.width || y+1==canvas.height || x<1 || y<1)) {         
+                red = avgRed(imageData, x, y)/9;
+                green = avgGreen(imageData, x, y)/9;
+                blue = avgBlue(imageData, x, y)/9;
+                setPixel(imageData,x,y,red,green,blue,255);   
+            }
+        }
+    }
+    ctx.putImageData(imageData, 0, 0);
+}
+
+function avgRed(imageData,x,y) {
+    let prom=0;
+    prom += getRed(imageData,x,y);
+    prom += getRed(imageData,x-1,y);
+    prom += getRed(imageData,x+1,y);
+    prom += getRed(imageData,x+1,y+1);
+    prom += getRed(imageData,x-1,y-1);
+    prom += getRed(imageData,x,y+1);
+    prom += getRed(imageData,x,y-1);
+    prom += getRed(imageData,x+1,y-1);
+    prom += getRed(imageData,x-1,y+1);
+
+    return prom;
+}
+function avgGreen(imageData,x,y) {
+    let prom=0;
+    prom += getGreen(imageData,x,y);
+    prom += getGreen(imageData,x-1,y);
+    prom += getGreen(imageData,x+1,y);
+    prom += getGreen(imageData,x+1,y+1);
+    prom += getGreen(imageData,x-1,y-1);
+    prom += getGreen(imageData,x,y+1);
+    prom += getGreen(imageData,x,y-1);
+    prom += getGreen(imageData,x+1,y-1);
+    prom += getGreen(imageData,x-1,y+1);
+
+    return prom;
+}
+function avgBlue(imageData,x,y) {
+    let prom=0;;
+    prom += getBlue(imageData,x,y);
+    prom += getBlue(imageData,x-1,y);
+    prom += getBlue(imageData,x+1,y);
+    prom += getBlue(imageData,x+1,y+1);
+    prom += getBlue(imageData,x-1,y-1);
+    prom += getBlue(imageData,x,y+1);
+    prom += getBlue(imageData,x,y-1);
+    prom += getBlue(imageData,x+1,y-1);
+    prom += getBlue(imageData,x-1,y+1);
+
+    return prom;
+}
+
 
     
 function filtrodegris() {
@@ -195,6 +254,8 @@ function filtrodegris() {
     }
     
     function limpiarCanvas(){
+        canvas.width = cWidth;
+        canvas.height = cHeight;
         let imageData=ctx.createImageData(cWidth,cHeight);
         for ( let x = 0; x < imageData.width; x++){
             for (let y = 0; y < imageData.height; y++){
@@ -209,6 +270,7 @@ function filtrodegris() {
      
 
 
+document.querySelector("#blur").addEventListener("click",blur);
 document.querySelector("#limpiar").addEventListener("click",limpiarCanvas);
 document.querySelector("#filtroGris").addEventListener("click",filtrodegris);
 document.querySelector("#file").addEventListener('change',setImage,false);
