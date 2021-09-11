@@ -11,7 +11,7 @@ let isGoma = false;
 let figures=[];
 let allCircles = [];
 
-function drawFigure() {
+function drawFigure() {//recorre todos los circulos que se van creando y crea la linea entre circulo y circulo.
    
     for (let i = 0; i < figures.length; i++) {
         let elem = figures[i];
@@ -75,7 +75,7 @@ function onMouseMove(e) {
         drawFigure();
     }
 }
-function setColor() {
+function setColor() {//Trae el valor del color en el html si no esta acitvada la goma
     if (!isGoma) {
         return document.querySelector("#findColor").value;
     }else{
@@ -90,21 +90,23 @@ function setLapiz() {
     isGoma = false;
 }
 
-function setImage(e) {
+function setImage(e) { //Setea la imagen en el canvas
+   
     let reader = new FileReader()
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = () => {
         let img = document.createElement('img');
         img.src = reader.result;
-      
         img.onload = () => {
-            ctx.drawImage(img,0,0,cWidth,cHeight);
-            drawAllCircles();
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img,0,0,img.naturalWidth,img.naturalHeight);
+            drawAllCircles(); //re dibuja todos los circulos y lineas ya creados
         }
     }
 }
 
-function drawAllCircles() {
+function drawAllCircles() { //Dibuja todos los circulos de vuelta, con sus lineas
     for (let i = 0; i < allCircles.length; i++) {
         console.log(allCircles);
         for (let j = 0; j < allCircles[i].length; j++) {
@@ -139,7 +141,7 @@ function isWithe(color) {
     }
 }
 /*
-function isInside(circle) {// recorreer allCirculos y sacar 
+function isInside(circle) {
     allCircles.forEach(elem => {
         for (let i = 0; i < elem.length; i++) {
             const circuloElem = elem[i];
@@ -149,11 +151,66 @@ function isInside(circle) {// recorreer allCirculos y sacar
     });
 }
 */
-/*
-    ctx.fillStyle = "#ffffff";
-    ctx.fillRect = (0,0,cWidth,cHeight);
-*/
 
+
+    
+function filtrodegris() {
+         let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
+         let red,green,blue,gris;
+         for ( let x = 0; x < imageData.width; x++){
+             for (let y = 0; y < imageData.height; y++){
+                red = getRed(imageData, x, y);
+                green = getGreen(imageData, x, y);
+                blue = getBlue(imageData, x, y);
+                
+                 gris = (red * 0.33 + green * 0.5 + 0.15 * blue);
+                 setPixel(imageData,x,y,gris,gris,gris,255);
+             }
+         }
+         ctx.putImageData(imageData, 0, 0);
+}
+     
+
+    function setPixel(imageData, x, y, r, g, b, a) {
+        let index = (x + y * imageData.width) * 4;
+        imageData.data[index + 0] = r;
+        imageData.data[index + 1] = g;
+        imageData.data[index + 2] = b;
+        imageData.data[index + 3] = a;
+    }
+    
+    function getRed(imageData, x, y) {
+        let index = (x + y * imageData.width) * 4;
+        return imageData.data[index + 0];
+    }
+    
+    function getGreen(imageData, x, y) {
+        let index = (x + y * imageData.width) * 4;
+        return imageData.data[index + 1];
+    }
+    
+    function getBlue(imageData, x, y) {
+        let index = (x + y * imageData.width) * 4;
+        return imageData.data[index + 2];
+    }
+    
+    function limpiarCanvas(){
+        let imageData=ctx.createImageData(cWidth,cHeight);
+        for ( let x = 0; x < imageData.width; x++){
+            for (let y = 0; y < imageData.height; y++){
+                let r = 255;
+                let g = 255;
+                let b = 255;
+               setPixel(imageData,x,y,r,g,b,255);
+            }
+        }
+        ctx.putImageData(imageData, 0, 0);
+    }
+     
+
+
+document.querySelector("#limpiar").addEventListener("click",limpiarCanvas);
+document.querySelector("#filtroGris").addEventListener("click",filtrodegris);
 document.querySelector("#file").addEventListener('change',setImage,false);
 document.querySelector("#goma").addEventListener('click', setGoma,false);
 document.querySelector("#lapiz").addEventListener('click', setLapiz,false);
