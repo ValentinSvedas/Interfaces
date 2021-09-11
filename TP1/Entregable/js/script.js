@@ -107,7 +107,7 @@ function setImage(e) { //Setea la imagen en el canvas
 }
 
 function drawAllCircles() { //Dibuja todos los circulos de vuelta, con sus lineas
-    for (let i = 0; i < allCircles.length; i++) {W
+    for (let i = 0; i < allCircles.length; i++) {
         for (let j = 0; j < allCircles[i].length; j++) {
             let elem = allCircles[i][j];
             if (j>0) {  
@@ -151,6 +151,111 @@ function isInside(circle) {
 }
 */
 
+function deteccionBordes() {
+   filtrodegris(); //transformo a gris la imagen para que el sobel sea más exacto
+    let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let r,g,b,a;
+        for ( let x = 0; x < imageData.width; x++){
+            for (let y = 0; y < imageData.height; y++){
+                if (!(x+1==canvas.width || y+1==canvas.height || x<1 || y<1)) {
+                    r = detectarBordeEnXr(imageData,x,y);
+                    g = detectarBordeEnXg(imageData,x,y);
+                    b = detectarBordeEnXb(imageData,x,y);
+                    a = detectarBordeEnXa(imageData,x,y);
+
+                    setPixel(imageData,x,y,r,g,b,a);
+                }
+            }
+        } 
+        ctx.putImageData(imageData, 0, 0);
+}
+function detectarBordeEnXr(imageData, x, y) {
+      
+        let a;
+        let a1 = getRed(imageData,x-1,y+1);
+        let a2 = getRed(imageData,x-1,y);
+        let a3 = getRed(imageData,x-1,y-1);
+        let a4 = getRed(imageData,x+1,y+1);
+        let a5 = getRed(imageData,x+1,y);
+        let a6 = getRed(imageData,x+1,y-1);
+        let sobel1 = getRed(imageData,x-1,y+1)*(-1);
+        let sobel2 = getRed(imageData,x-1,y)*(-2);
+        let sobel3 = getRed(imageData,x-1,y-1)*(-1);
+        let sobel4 = getRed(imageData,x+1,y+1)*(1);
+        let sobel5 = getRed(imageData,x+1,y)*(2);
+        let sobel6 = getRed(imageData,x+1,y-1)*(1);
+        let s1 =  sobel1 + sobel4;    
+        let s2 = sobel2 + sobel5;     
+        let s3=  sobel3 + sobel6;     
+        a=(a1+a4)+(a2+a5)+(a3+a6);
+
+        return (s1+s2+s3);
+}
+function detectarBordeEnXg(imageData, x, y) {
+    let a;
+let a1 = getGreen(imageData,x-1,y+1);
+let a2 = getGreen(imageData,x-1,y);
+let a3 = getGreen(imageData,x-1,y-1);
+let a4 = getGreen(imageData,x+1,y+1);
+let a5 = getGreen(imageData,x+1,y);
+let a6 = getGreen(imageData,x+1,y-1);
+        let sobel1 = getGreen(imageData,x-1,y+1)*(-1);
+        let sobel2 = getGreen(imageData,x-1,y)*(-2);
+        let sobel3 = getGreen(imageData,x-1,y-1)*(-1);
+        let sobel4 = getGreen(imageData,x+1,y+1)*(1);
+        let sobel5 = getGreen(imageData,x+1,y)*(2);
+        let sobel6 = getGreen(imageData,x+1,y-1)*(1);
+        let s1 =  sobel1 + sobel4;    
+        let s2 = sobel2 + sobel5;     
+        let s3 =  sobel3 + sobel6;   
+        a=(a1+a4)+(a2+a5)+(a3+a6);
+
+        return (s1+s2+s3);
+}
+function detectarBordeEnXb(imageData, x, y) {
+    let a;
+let a1 = getBlue(imageData,x-1,y+1);
+let a2 = getBlue(imageData,x-1,y);
+let a3 = getBlue(imageData,x-1,y-1);
+let a4 = getBlue(imageData,x+1,y+1);
+let a5 = getBlue(imageData,x+1,y);
+let a6 = getBlue(imageData,x+1,y-1);
+        let sobel1 = getBlue(imageData,x-1,y+1)*(-1);
+        let sobel2 = getBlue(imageData,x-1,y)*(-2);
+        let sobel3 = getBlue(imageData,x-1,y-1)*(-1);
+        let sobel4 = getBlue(imageData,x+1,y+1)*(1);
+        let sobel5 = getBlue(imageData,x+1,y)*(2);
+        let sobel6 = getBlue(imageData,x+1,y-1)*(1);
+        let s1 =  sobel1 + sobel4;    
+        let s2 = sobel2 + sobel5;     
+        let s3=  sobel3 + sobel6;   
+
+        a=(a1+a4)+(a2+a5)+(a3+a6);
+
+        return (s1+s2+s3);
+}
+function detectarBordeEnXa(imageData, x, y) {
+    let a;
+let a1 = getA(imageData,x-1,y+1);
+let a2 = getA(imageData,x-1,y);
+let a3 = getA(imageData,x-1,y-1);
+let a4 = getA(imageData,x+1,y+1);
+let a5 = getA(imageData,x+1,y);
+let a6 = getA(imageData,x+1,y-1);
+        let sobel1 = getA(imageData,x-1,y+1)*(-1);
+        let sobel2 = getA(imageData,x-1,y)*(-2);
+        let sobel3 = getA(imageData,x-1,y-1)*(-1);
+        let sobel4 = getA(imageData,x+1,y+1)*(1);
+        let sobel5 = getA(imageData,x+1,y)*(2);
+        let sobel6 = getA(imageData,x+1,y-1)*(1);
+        let s1 =  sobel1 + sobel4;    
+        let s2 = sobel2 + sobel5;     
+        let s3=  sobel3 + sobel6;   
+
+        a=(a1+a4)+(a2+a5)+(a3+a6);
+
+        return (s1+s2+s3);
+}
 
     
 function filtrodegris() {
@@ -191,6 +296,10 @@ function filtrodegris() {
     function getBlue(imageData, x, y) {
         let index = (x + y * imageData.width) * 4;
         return imageData.data[index + 2];
+    }
+    function getA(imageData, x, y) {
+        let index = (x + y * imageData.width) * 4;
+        return imageData.data[index + 3];
     }
     
     function limpiarCanvas(){
@@ -324,6 +433,7 @@ function filtrodegris() {
         prom += getBlue(imageData,x-1,y+1);
         return prom;
     }
+document.querySelector("#deteccionBordes").addEventListener("click",deteccionBordes);
 document.querySelector("#blur").addEventListener("click",blur);
 document.querySelector("#filtroSepia").addEventListener("click",filtroSepia);
 document.querySelector("#filtroNegativo").addEventListener("click",filtroNegativo);

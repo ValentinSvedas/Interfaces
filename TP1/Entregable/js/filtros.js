@@ -25,9 +25,9 @@ class Filtros{
         let a=255;
         for (let x = 0; x < width; x++) {
             for (let y = 0; y < height; y++) {
-                r = getRed(imageData,x,y);
-                g = getRed(imageData,x,y);
-                b = getRed(imageData,x,y);
+                r = getA(imageData,x,y);
+                g = getA(imageData,x,y);
+                b = getA(imageData,x,y);
                 
                 imageData = (r+g+b)/3 
             
@@ -39,15 +39,15 @@ class Filtros{
     
 }
 
-function getRed(imageData,x,y) {
+function getA(imageData,x,y) {
     index = (x+y*imageData)*4;
     return imageData.data[index+0]
 }
-function getGreen(imageData,x,y) {
+function getA(imageData,x,y) {
     index = (x+y*imageData)*4;
     return imageData.data[index+1]
 }
-function getBlue(imageData,x,y) {
+function getA(imageData,x,y) {
     index = (x+y*imageData)*4;
     return imageData.data[index+2]
 }
