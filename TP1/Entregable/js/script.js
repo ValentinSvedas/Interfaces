@@ -153,7 +153,7 @@ function isInside(circle) {
 
 
     
-function filtrodegris() {
+function filtrodegris() { //coloca el filtro de grises a el canvas.
          let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
          let red,green,blue,gris;
          for ( let x = 0; x < imageData.width; x++){
@@ -193,7 +193,7 @@ function filtrodegris() {
         return imageData.data[index + 2];
     }
     
-    function limpiarCanvas(){
+    function limpiarCanvas(){ //vacia el cambas de elementos.
         let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
         for ( let x = 0; x < imageData.width; x++){
             for (let y = 0; y < imageData.height; y++){
@@ -363,7 +363,7 @@ function filtrodegris() {
     }
   
 
-    function descargar(){
+    function descargar(){// se descarga la imagen en formato .png.
     let download=document.getElementById("descarga");
     let image=canvas.toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
