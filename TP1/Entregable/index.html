@@ -14,7 +14,9 @@
         <div class="menu">
             <div class="item">
                 <input id="file" accept='images/*' type="file" >
-                <button>Download image</button>
+                <a id="descarga" download="Canvas.png">
+                <button type="button" onClick="descargar()">Descarga</button>
+                </a>
             </div>
             <div class="item"><input type="color" id="findColor"></div>
             <div class="item">
@@ -26,8 +28,10 @@
             <button id="filtroGris">Filtro de Gris</button>
             <button id="filtroNegativo">Filtro Negativo</button>
             <button id="filtroSepia">Filtro Sepia</button>
+            <button id="binarizacion">Filtro Binarizacion</button>
             <button id="blur">Blur</button>
             <button id="deteccionBordes">Deteccion</button>
+            
         </div>
         
     </div>
