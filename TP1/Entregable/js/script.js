@@ -107,7 +107,7 @@ function setImage(e) { //Setea la imagen en el canvas
 }
 
 function drawAllCircles() { //Dibuja todos los circulos de vuelta, con sus lineas
-    for (let i = 0; i < allCircles.length; i++) {W
+    for (let i = 0; i < allCircles.length; i++) {
         for (let j = 0; j < allCircles[i].length; j++) {
             let elem = allCircles[i][j];
             if (j>0) {  
@@ -151,6 +151,111 @@ function isInside(circle) {
 }
 */
 
+function deteccionBordes() {
+   filtrodegris(); //transformo a gris la imagen para que el sobel sea más exacto
+    let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let r,g,b,a;
+        for ( let x = 0; x < imageData.width; x++){
+            for (let y = 0; y < imageData.height; y++){
+                if (!(x+1==canvas.width || y+1==canvas.height || x<1 || y<1)) {
+                    r = detectarBordeEnXr(imageData,x,y);
+                    g = detectarBordeEnXg(imageData,x,y);
+                    b = detectarBordeEnXb(imageData,x,y);
+                    a = detectarBordeEnXa(imageData,x,y);
+
+                    setPixel(imageData,x,y,r,g,b,a);
+                }
+            }
+        } 
+        ctx.putImageData(imageData, 0, 0);
+}
+function detectarBordeEnXr(imageData, x, y) {
+      
+        let a;
+        let a1 = getRed(imageData,x-1,y+1);
+        let a2 = getRed(imageData,x-1,y);
+        let a3 = getRed(imageData,x-1,y-1);
+        let a4 = getRed(imageData,x+1,y+1);
+        let a5 = getRed(imageData,x+1,y);
+        let a6 = getRed(imageData,x+1,y-1);
+        let sobel1 = getRed(imageData,x-1,y+1)*(-1);
+        let sobel2 = getRed(imageData,x-1,y)*(-2);
+        let sobel3 = getRed(imageData,x-1,y-1)*(-1);
+        let sobel4 = getRed(imageData,x+1,y+1)*(1);
+        let sobel5 = getRed(imageData,x+1,y)*(2);
+        let sobel6 = getRed(imageData,x+1,y-1)*(1);
+        let s1 =  sobel1 + sobel4;    
+        let s2 = sobel2 + sobel5;     
+        let s3=  sobel3 + sobel6;     
+        a=(a1+a4)+(a2+a5)+(a3+a6);
+
+        return (s1+s2+s3);
+}
+function detectarBordeEnXg(imageData, x, y) {
+    let a;
+let a1 = getGreen(imageData,x-1,y+1);
+let a2 = getGreen(imageData,x-1,y);
+let a3 = getGreen(imageData,x-1,y-1);
+let a4 = getGreen(imageData,x+1,y+1);
+let a5 = getGreen(imageData,x+1,y);
+let a6 = getGreen(imageData,x+1,y-1);
+        let sobel1 = getGreen(imageData,x-1,y+1)*(-1);
+        let sobel2 = getGreen(imageData,x-1,y)*(-2);
+        let sobel3 = getGreen(imageData,x-1,y-1)*(-1);
+        let sobel4 = getGreen(imageData,x+1,y+1)*(1);
+        let sobel5 = getGreen(imageData,x+1,y)*(2);
+        let sobel6 = getGreen(imageData,x+1,y-1)*(1);
+        let s1 =  sobel1 + sobel4;    
+        let s2 = sobel2 + sobel5;     
+        let s3 =  sobel3 + sobel6;   
+        a=(a1+a4)+(a2+a5)+(a3+a6);
+
+        return (s1+s2+s3);
+}
+function detectarBordeEnXb(imageData, x, y) {
+    let a;
+let a1 = getBlue(imageData,x-1,y+1);
+let a2 = getBlue(imageData,x-1,y);
+let a3 = getBlue(imageData,x-1,y-1);
+let a4 = getBlue(imageData,x+1,y+1);
+let a5 = getBlue(imageData,x+1,y);
+let a6 = getBlue(imageData,x+1,y-1);
+        let sobel1 = getBlue(imageData,x-1,y+1)*(-1);
+        let sobel2 = getBlue(imageData,x-1,y)*(-2);
+        let sobel3 = getBlue(imageData,x-1,y-1)*(-1);
+        let sobel4 = getBlue(imageData,x+1,y+1)*(1);
+        let sobel5 = getBlue(imageData,x+1,y)*(2);
+        let sobel6 = getBlue(imageData,x+1,y-1)*(1);
+        let s1 =  sobel1 + sobel4;    
+        let s2 = sobel2 + sobel5;     
+        let s3=  sobel3 + sobel6;   
+
+        a=(a1+a4)+(a2+a5)+(a3+a6);
+
+        return (s1+s2+s3);
+}
+function detectarBordeEnXa(imageData, x, y) {
+    let a;
+let a1 = getA(imageData,x-1,y+1);
+let a2 = getA(imageData,x-1,y);
+let a3 = getA(imageData,x-1,y-1);
+let a4 = getA(imageData,x+1,y+1);
+let a5 = getA(imageData,x+1,y);
+let a6 = getA(imageData,x+1,y-1);
+        let sobel1 = getA(imageData,x-1,y+1)*(-1);
+        let sobel2 = getA(imageData,x-1,y)*(-2);
+        let sobel3 = getA(imageData,x-1,y-1)*(-1);
+        let sobel4 = getA(imageData,x+1,y+1)*(1);
+        let sobel5 = getA(imageData,x+1,y)*(2);
+        let sobel6 = getA(imageData,x+1,y-1)*(1);
+        let s1 =  sobel1 + sobel4;    
+        let s2 = sobel2 + sobel5;     
+        let s3=  sobel3 + sobel6;   
+
+        a=(a1+a4)+(a2+a5)+(a3+a6);
+
+        return (s1+s2+s3);
+}
 
     
 function filtrodegris() { //coloca el filtro de grises a el canvas.
@@ -192,6 +297,10 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
         let index = (x + y * imageData.width) * 4;
         return imageData.data[index + 2];
     }
+    function getA(imageData, x, y) {
+        let index = (x + y * imageData.width) * 4;
+        return imageData.data[index + 3];
+    }
     
     function limpiarCanvas(){ //vacia el cambas de elementos.
         let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -214,12 +323,12 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
 
         let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
     
-        for ( let x = 0; x<imageData.width; x++){
-            for (let y = 0; y<imageData.height; y++){
-                let index = (x+y*imageData.width)*4;
-                let r =255-imageData.data[index];    //sentencia que invierte los valores en R.
-                let g =255-imageData.data[index+1];  //sentencia que invierte los valores en G.
-               let b =255-imageData.data[index+2];   //sentencia que invierte los valores en B.
+        for ( let x = 0; x < imageData.width; x++){
+            for (let y = 0; y < imageData.height; y++){
+                let index = ( x + y * imageData.width) * 4;
+                let r = 255 - imageData.data[index];    //sentencia que invierte los valores en R.
+                let g = 255 - imageData.data[index+1];  //sentencia que invierte los valores en G.
+               let b = 255 - imageData.data[index+2];   //sentencia que invierte los valores en B.
                 setPixel(imageData,x,y,r,g,b,255);
             }
         } 
@@ -230,51 +339,50 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
         //en esta funcion se inplemeta el filtro sepia, en la cual si se cliquea varias veces en el boton, 
         //el filtro se ira aplicando cada vez mas a la imagen hasta que los valores R,G,B hastas acercarse a 255.
 
-        let imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+        let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
       
-        for ( let x=0;x<imageData.width;x++){
-            for (let y=0;y<imageData.height;y++){
+        for ( let x = 0; x < imageData.width; x++){
+            for (let y = 0; y < imageData.height; y++){
                 
-                let index=(x+y*imageData.width)*4;
+                let index = ( x + y * imageData.width) * 4;
                 
-                let r=imageData.data[index];
-                let g=imageData.data[index+1];
-                let b=imageData.data[index+2];
+                let r = imageData.data[index];
+                let g = imageData.data[index+1];
+                let b = imageData.data[index+2];
+    
+                let tr = 0.393 * r + 0.769 * g + 0.189 * b;     //se le introducen los valores a R,G,B para volver la tonalidad sepia.
+                let tg = 0.349 * r + 0.686 * g + 0.168 * b;
+                let tb = 0.272 * r + 0.534 * g + 0.131 * b;
 
-                //se le introducen los valores a R,G,B para volver la tonalidad sepia.
-                let tr=0.393*r+0.769*g+0.189*b;     
-                let tg=0.349*r+0.686*g+0.168*b;
-                let tb=0.272*r+0.534*g+0.131*b;
-
-                if(tr>255) {
-                    r=255;
-                }else{
-                    r=tr;
+                if (tr > 255) {
+                    r = 255;
+                } else {
+                    r = tr;
                 }
     
-                if (tg>255) {
-                    g=255;
+                if (tg > 255) {
+                    g = 255;
                 } else {
-                    g=tg;
+                    g = tg;
                 }
     
-                if (tb>255) {
-                    b=255;
+                if (tb > 255) {
+                    b = 255;
                 } else {
-                    b=tb;
+                    b = tb;
                 }
     
                 setPixel(imageData,x,y,r,g,b,255);
             }
         }
-        ctx.putImageData(imageData,0,0);
+        ctx.putImageData(imageData, 0, 0);
     }
 
     function blur() {
-        let imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+        let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
         let red,green,blue;
-        for ( let x =0; x<imageData.width; x++){
-            for (let y =0;y<imageData.height; y++){
+        for ( let x = 0; x < imageData.width; x++){
+            for (let y = 0; y < imageData.height; y++){
                 if (!(x+1==canvas.width || y+1==canvas.height || x<1 || y<1)) {         
                     red = avgRed(imageData, x, y)/9;
                     green = avgGreen(imageData, x, y)/9;
@@ -283,7 +391,7 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
                 }
             }
         }
-        ctx.putImageData(imageData,0,0);
+        ctx.putImageData(imageData, 0, 0);
     }
     
     function avgRed(imageData,x,y) {
@@ -374,6 +482,7 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
 
 
 document.querySelector("#binarizacion").addEventListener("click",filtroBinarizacion);
+document.querySelector("#deteccionBordes").addEventListener("click",deteccionBordes);
 document.querySelector("#blur").addEventListener("click",blur);
 document.querySelector("#filtroSepia").addEventListener("click",filtroSepia);
 document.querySelector("#filtroNegativo").addEventListener("click",filtroNegativo);
