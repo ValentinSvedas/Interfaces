@@ -152,110 +152,74 @@ function isInside(circle) {
 */
 
 function deteccionBordes() {
-   filtrodegris(); //transformo a gris la imagen para que el sobel sea más exacto
+   filtroBinarizacion(); //transformo a binarizacion la imagen para que el sobel sea más exacto
     let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
-    let r,g,b,a;
+    let imageDataCopy=ctx.getImageData(0, 0, canvas.width, canvas.height);//creo la imagen copia del canvas para que no se pise con la original
+    let r,g,b;
         for ( let x = 0; x < imageData.width; x++){
             for (let y = 0; y < imageData.height; y++){
-                if (!(x+1==canvas.width || y+1==canvas.height || x<1 || y<1)) {
-                    r = detectarBordeEnXr(imageData,x,y);
-                    g = detectarBordeEnXg(imageData,x,y);
-                    b = detectarBordeEnXb(imageData,x,y);
-                    a = detectarBordeEnXa(imageData,x,y);
-
-                    setPixel(imageData,x,y,r,g,b,a);
-                }
+                //detecto los bordes en RGB
+                    r = edge(detectarBordeR(imageData,x,y));
+                    g = edge(detectarBordeG(imageData,x,y));
+                    b = edge(detectarBordeB(imageData,x,y));
+                  
+                    setPixel(imageDataCopy,x,y,r,g,b,255);
+                
+                
             }
         } 
-        ctx.putImageData(imageData, 0, 0);
+        ctx.putImageData(imageDataCopy, 0, 0);
 }
-function detectarBordeEnXr(imageData, x, y) {
-      
-        let a;
-        let a1 = getRed(imageData,x-1,y+1);
-        let a2 = getRed(imageData,x-1,y);
-        let a3 = getRed(imageData,x-1,y-1);
-        let a4 = getRed(imageData,x+1,y+1);
-        let a5 = getRed(imageData,x+1,y);
-        let a6 = getRed(imageData,x+1,y-1);
+function edge(color) {//Compruebo si encuentro un cambio de color y si lo encuentro, lo pone en negro
+    let aux=255;
+    if (color>0) {
+        aux=0
+    }
+    return aux
+}
+function detectarBordeR(imageData, x, y) {// Detecto los bordes de R mediante el operador kernel 3x3 tanto en X como en Y
         let sobel1 = getRed(imageData,x-1,y+1)*(-1);
         let sobel2 = getRed(imageData,x-1,y)*(-2);
         let sobel3 = getRed(imageData,x-1,y-1)*(-1);
         let sobel4 = getRed(imageData,x+1,y+1)*(1);
         let sobel5 = getRed(imageData,x+1,y)*(2);
         let sobel6 = getRed(imageData,x+1,y-1)*(1);
-        let s1 =  sobel1 + sobel4;    
-        let s2 = sobel2 + sobel5;     
-        let s3=  sobel3 + sobel6;     
-        a=(a1+a4)+(a2+a5)+(a3+a6);
-
-        return (s1+s2+s3);
+        let sobel7 = getRed(imageData,x,y-1)*(2);
+        let sobel8 = getRed(imageData,x,y+1)*(-2);
+        let gx =(sobel4,sobel5,sobel6)-(sobel1+sobel2+sobel3);
+        let gy = (sobel4,sobel7,sobel6)-(sobel1+sobel8+sobel3);
+        
+        return Math.tan(gy,gx);  
 }
-function detectarBordeEnXg(imageData, x, y) {
-    let a;
-let a1 = getGreen(imageData,x-1,y+1);
-let a2 = getGreen(imageData,x-1,y);
-let a3 = getGreen(imageData,x-1,y-1);
-let a4 = getGreen(imageData,x+1,y+1);
-let a5 = getGreen(imageData,x+1,y);
-let a6 = getGreen(imageData,x+1,y-1);
+function detectarBordeG(imageData, x, y) {// Detecto los bordes de G mediante el operador kernel 3x3 tanto en X como en Y
         let sobel1 = getGreen(imageData,x-1,y+1)*(-1);
         let sobel2 = getGreen(imageData,x-1,y)*(-2);
         let sobel3 = getGreen(imageData,x-1,y-1)*(-1);
         let sobel4 = getGreen(imageData,x+1,y+1)*(1);
         let sobel5 = getGreen(imageData,x+1,y)*(2);
         let sobel6 = getGreen(imageData,x+1,y-1)*(1);
-        let s1 =  sobel1 + sobel4;    
-        let s2 = sobel2 + sobel5;     
-        let s3 =  sobel3 + sobel6;   
-        a=(a1+a4)+(a2+a5)+(a3+a6);
-
-        return (s1+s2+s3);
+        let sobel7 = getGreen(imageData,x,y-1)*(2);
+        let sobel8 = getGreen(imageData,x,y+1)*(-2);
+        let gx =(sobel4,sobel5,sobel6)-(sobel1+sobel2+sobel3);
+        let gy = (sobel4,sobel7,sobel6)-(sobel1+sobel8+sobel3);
+        return  Math.tan(gy,gx);   //Obtengo el valor para comprobar si es borde o no
 }
-function detectarBordeEnXb(imageData, x, y) {
-    let a;
-let a1 = getBlue(imageData,x-1,y+1);
-let a2 = getBlue(imageData,x-1,y);
-let a3 = getBlue(imageData,x-1,y-1);
-let a4 = getBlue(imageData,x+1,y+1);
-let a5 = getBlue(imageData,x+1,y);
-let a6 = getBlue(imageData,x+1,y-1);
+
+function detectarBordeB(imageData, x, y) { // Detecto los bordes de B mediante el operador kernel 3x3 tanto en X como en Y
+      
         let sobel1 = getBlue(imageData,x-1,y+1)*(-1);
         let sobel2 = getBlue(imageData,x-1,y)*(-2);
         let sobel3 = getBlue(imageData,x-1,y-1)*(-1);
         let sobel4 = getBlue(imageData,x+1,y+1)*(1);
         let sobel5 = getBlue(imageData,x+1,y)*(2);
         let sobel6 = getBlue(imageData,x+1,y-1)*(1);
-        let s1 =  sobel1 + sobel4;    
-        let s2 = sobel2 + sobel5;     
-        let s3=  sobel3 + sobel6;   
-
-        a=(a1+a4)+(a2+a5)+(a3+a6);
-
-        return (s1+s2+s3);
+        let sobel7 = getBlue(imageData,x,y-1)*(2);
+        let sobel8 = getBlue(imageData,x,y+1)*(-2);
+        let gx =(sobel4,sobel5,sobel6)-(sobel1+sobel2+sobel3);
+        let gy = (sobel4,sobel7,sobel6)-(sobel1+sobel8+sobel3);
+        return  Math.tan(gy,gx);    
 }
-function detectarBordeEnXa(imageData, x, y) {
-    let a;
-let a1 = getA(imageData,x-1,y+1);
-let a2 = getA(imageData,x-1,y);
-let a3 = getA(imageData,x-1,y-1);
-let a4 = getA(imageData,x+1,y+1);
-let a5 = getA(imageData,x+1,y);
-let a6 = getA(imageData,x+1,y-1);
-        let sobel1 = getA(imageData,x-1,y+1)*(-1);
-        let sobel2 = getA(imageData,x-1,y)*(-2);
-        let sobel3 = getA(imageData,x-1,y-1)*(-1);
-        let sobel4 = getA(imageData,x+1,y+1)*(1);
-        let sobel5 = getA(imageData,x+1,y)*(2);
-        let sobel6 = getA(imageData,x+1,y-1)*(1);
-        let s1 =  sobel1 + sobel4;    
-        let s2 = sobel2 + sobel5;     
-        let s3=  sobel3 + sobel6;   
 
-        a=(a1+a4)+(a2+a5)+(a3+a6);
-
-        return (s1+s2+s3);
-}
 
     
 function filtrodegris() { //coloca el filtro de grises a el canvas.
@@ -267,8 +231,8 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
                 green = getGreen(imageData, x, y);
                 blue = getBlue(imageData, x, y);
                 
-                 gris = (red * 0.33 + green * 0.5 + 0.15 * blue);
-                 setPixel(imageData,x,y,gris,gris,gris,255);
+                 gris = (red * 0.33 + green * 0.5 + 0.15 * blue); //hago el calculo de grises mediante el resultado de RGB
+                 setPixel(imageData,x,y,gris,gris,gris,255);//Reemplazo el rgb por el resultado 
              }
          }
          ctx.putImageData(imageData, 0, 0);
@@ -297,10 +261,7 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
         let index = (x + y * imageData.width) * 4;
         return imageData.data[index + 2];
     }
-    function getA(imageData, x, y) {
-        let index = (x + y * imageData.width) * 4;
-        return imageData.data[index + 3];
-    }
+ 
     
     function limpiarCanvas(){ //vacia el cambas de elementos.
         let imageData=ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -313,7 +274,7 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
             }
         }
         ctx.putImageData(imageData, 0, 0);
-        allCircles=[];
+        allCircles=[];//Vacia todos los circulos para el no se creen lineas al cargar una nueva imagen
     }
      
 
@@ -383,8 +344,8 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
         let red,green,blue;
         for ( let x = 0; x < imageData.width; x++){
             for (let y = 0; y < imageData.height; y++){
-                if (!(x+1==canvas.width || y+1==canvas.height || x<1 || y<1)) {         
-                    red = avgRed(imageData, x, y)/9;
+                if (!(x+1==canvas.width || y+1==canvas.height || x<1 || y<1)) {//Comprueba que no tome valores más allá de la imagen     
+                    red = avgRed(imageData, x, y)/9;//Toma el valor y lo divide por 9 que son los pixeles que toman para el promedio
                     green = avgGreen(imageData, x, y)/9;
                     blue = avgBlue(imageData, x, y)/9;
                     setPixel(imageData,x,y,red,green,blue,255);   
@@ -394,7 +355,7 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
         ctx.putImageData(imageData, 0, 0);
     }
     
-    function avgRed(imageData,x,y) {
+    function avgRed(imageData,x,y) {//Agarra los valores de todos los pixeles alrededor del pixel x,y y los suma
         let prom=0;
         prom += getRed(imageData,x,y);
         prom += getRed(imageData,x-1,y);
@@ -442,9 +403,9 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
         for ( let x=0;x<imageData.width; x++){
             for (let y=0;y<imageData.height; y++){
                 let AVG=avgRGB(imageData,x,y);
-                let r=binarycolor(AVG);
-                let g=binarycolor(AVG);
-                let b=binarycolor(AVG);
+                let r=colorWB(AVG);
+                let g=colorWB(AVG);
+                let b=colorWB(AVG);
                 setPixel(imageData,x,y,r,g,b,255);
             }
         }
@@ -461,7 +422,7 @@ function filtrodegris() { //coloca el filtro de grises a el canvas.
         return sum/3;
     }
     
-    function binarycolor(color) {
+    function colorWB(color) {
         //funcion la cual al color dado en la funcion anterior se se lo califica
         // dependiendo si es <255/2 sera RGB=0,0,0 y si no RGB=255,255,255. Luego lo pasa a funcion principal.
         if(color<255/2){
