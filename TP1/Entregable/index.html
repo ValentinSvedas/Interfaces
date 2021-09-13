@@ -15,7 +15,7 @@
             <div class="item">
                 <input id="file" accept='images/*' type="file" >
                 <a id="descarga" download="Canvas.png">
-                <button type="button" onClick="descargar()">Descarga</button>
+                <button type="button" id="descargar">Descarga</button>
                 </a>
             </div>
             <div class="item"><input type="color" id="findColor"></div>
@@ -23,20 +23,35 @@
                 <button id="goma"><img src="img/goma.png" width="30" height="30" alt=""></button>
                 <button id="lapiz"><img src="img/lapiz.png" width="30" height="30" alt=""></button>
             </div>
-            <div class="item"></div>
-            <button id="limpiar"> Limpiar Canvas </button>
-            <button id="filtroGris">Filtro de Gris</button>
-            <button id="filtroNegativo">Filtro Negativo</button>
-            <button id="filtroSepia">Filtro Sepia</button>
-            <button id="binarizacion">Filtro Binarizacion</button>
-            <button id="blur">Blur</button>
-            <button id="deteccionBordes">Deteccion</button>
-            
+            <div class="item"> <input type="range" id="range"> </div>
+            <div class="item"><button id="limpiar"> Limpiar Canvas </button></div>
+            <p>Filtros:</p>
+            <div class="item">
+                <button id="filtroGris">Grises</button>
+                <button id="filtroNegativo">Negativo</button>
+            </div>
+            <div class="item">
+                <button id="filtroSepia">Sepia</button>
+                <button id="binarizacion">Binarizacion</button>
+            </div>
+            <div class="item">
+                <button id="blur">Blur</button>
+                <button id="deteccionBordes">Deteccion de bordes</button>
+
+            </div>
         </div>
-        
     </div>
 </body>
+
 <script src="js/figure.js"></script>
 <script src="js/circle.js"></script>
+<script src="js/filtros/filtro.js"></script>
+<script src="js/filtros/blur.js"></script>
+<script src="js/filtros/edgeDetection.js"></script>
+<script src="js/filtros/gris.js"></script>
+<script src="js/filtros/binarizacion.js"></script>
+<script src="js/filtros/negativo.js"></script>
+<script src="js/filtros/sepia.js"></script>
+<script src="js/filtros/limpiarCanvas.js"></script>
 <script src="js/script.js"></script>
 </html>
