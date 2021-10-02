@@ -8,10 +8,10 @@ class Circle extends Figure{
 
     draw(){
         super.draw();
-        this.ctx.beginPath();
-        this.ctx.arc(this.posX,this.posY,this.radius,0,2*Math.PI);
-        this.ctx.fill();
-        this.ctx.closePath();
+        this.context.beginPath();
+        this.context.arc(this.posX,this.posY,this.radius,0,2*Math.PI);
+        this.context.fill();
+        this.context.closePath();
     }
 
     getRadius(){

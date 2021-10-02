@@ -1,28 +1,24 @@
 "use strict"
 
 let juego = null;
-let canvas = null;
+var canvas = null;
 let ctx= null;
 let menu = null;
-let statMessage = null;
-let statContainer = null;
-let columnsInput = null;
-let rowsInput = null;
 
-let BOARD_COLUMNS = 5;
-let BOARD_ROWS = 5;
+let BoardColumns = 5;
+let BoardRows = 5;
 
-let BOARD_WIDTH = 0;
-let BOARD_HEIGHT = 0;
-let TOKEN_NUMBER = 0;
+let Board_W = 0;
+let Board_H = 0;
+let NumeroFichas = 0;
 
-window.onload = function main() {
-    BOARD_COLUMNS = 5;
-    BOARD_ROWS = 5;
+ function main() {
+    BoardColumns = 5;
+    BoardRows = 5;
     
-    BOARD_WIDTH = (5 * 2) * BOARD_COLUMNS + 10 * BOARD_COLUMNS;
-    BOARD_HEIGHT = (5 * 2) * BOARD_ROWS + 10 * BOARD_ROWS;
-    TOKEN_NUMBER = (BOARD_COLUMNS * BOARD_ROWS) / 2;
+    Board_W = (30 * 2) * BoardColumns + 10 * BoardColumns;
+    Board_H = (30 * 2) * BoardRows + 10 * BoardRows;
+    NumeroFichas = (BoardColumns * BoardRows) / 2;
 
     canvas = document.querySelector("#myCanvas");
     ctx = canvas.getContext("2d");
@@ -71,7 +67,7 @@ function onMouseMove(e) {
 
 
 
-//document.addEventListener("DOMContentLoaded", main);
+document.addEventListener("DOMContentLoaded", main);
 /*
 canvas.addEventListener('click',onClick, false);
 canvas.addEventListener('mousedown',onMouseDown, false);
