@@ -1,13 +1,13 @@
 class Ficha {
     
-    constructor (color,context){
+    constructor (imageColor,context){
         
-        this.ficha = new Circle(512,50,25,color,context);
+        this.ficha = new Circle(512,50,25,imageColor,context);
         this.inBoard = false;
 
     }
     getColor() {
-        return this.color;
+        return this.imageColor;
     }
 
     draw(){

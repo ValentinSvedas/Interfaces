@@ -11,6 +11,8 @@ let BoardRows = 5;
 let Board_W = 0;
 let Board_H = 0;
 var NumeroFichas = 0;
+var imgP1 = 'images/pink-circle.png';
+var imgP2 = 'images/purple-circle.png';
 
  function main() {
     BoardColumns = 5;

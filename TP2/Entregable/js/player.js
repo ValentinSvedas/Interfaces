@@ -1,13 +1,13 @@
 class Player{
-    constructor(color,nombre){
-        this.color = color
+    constructor(imageColor,nombre){
+        this.imageColor = imageColor
         this.nombre = nombre
 
         this.fichas = Array()
     }
 
-    getColor(){
-        return this.color;
+    getImageColor(){
+        return this.imageColor;
     }
     getNombre(){
         return this.nombre;
@@ -16,7 +16,7 @@ class Player{
     newFichasArray(context){
 
         for (let i = 0; i < NumeroFichas; i++) {
-            let newFicha = new Ficha(this.color,context);
+            let newFicha = new Ficha(this.imageColor,context);
             this.fichas[i] = newFicha;
         }
 

@@ -12,6 +12,14 @@ class Circle extends Figure{
         this.context.arc(this.posX,this.posY,this.radius,0,2*Math.PI);
         this.context.fill();
         this.context.closePath();
+        if ( this.fill instanceof Image ){ // Si es una imagen
+            this.context.drawImage(
+                this.fill,
+                this.posX - this.radius,
+                this.posY - this.radius,
+                this.radius * 2,
+                this.radius * 2);
+        }
     }
 
     getRadius(){
