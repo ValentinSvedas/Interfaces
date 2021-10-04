@@ -11,9 +11,9 @@ class Figure{
         this.fill =fill;
     }
 
-    setPosition(x,y){
-        this.posX = x;
-        this.posY= y;
+    setPosition(p){
+        this.posX = p.x;
+        this.posY= p.y;
     }
 
     getPosition(){

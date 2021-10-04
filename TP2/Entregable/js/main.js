@@ -10,7 +10,7 @@ let BoardRows = 5;
 
 let Board_W = 0;
 let Board_H = 0;
-let NumeroFichas = 0;
+var NumeroFichas = 0;
 
  function main() {
     BoardColumns = 5;

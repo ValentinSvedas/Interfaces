@@ -1,10 +1,8 @@
 class Ficha {
     
-    constructor (color,fichaImage,context){
+    constructor (color,context){
         
-        this.ficha = new Circle(512,50,25,fichaImage,context);
-        
-        this.color = color;
+        this.ficha = new Circle(512,50,25,color,context);
         this.inBoard = false;
 
     }
@@ -13,13 +11,12 @@ class Ficha {
     }
 
     draw(){
-        this.figure.draw();
-    }
-    isPointInside(point){
-        return this.figure.isPointInside(point);
+        this.ficha.draw();
     }
 
     setPosition(point){
-        this.figure.setPosition(point);
+        this.ficha.setPosition(point);
+        this.draw();
     }
+
 }

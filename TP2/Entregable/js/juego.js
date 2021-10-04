@@ -3,15 +3,24 @@ class Juego {
     constructor (context){
         this.context = context;
         this.board = null;
+        this.P1 = null;
+        this.P2 = null;
+        this.fichasJ1;
+        this.fichasJ2;
 
     }
 
     async inicioJuego(){
         this.clearCanvas();
         this.board = new Board(this.context);
+        this.P1 = new Player("#FF0000","Rojo"); //Poner color en una variable global
+        this.P2 = new Player("#00FF00","Verde");
         try {
-            await this.board.initBoard(this.context);
+            this.fichasJ1 = this.newFichasArray(this.P1);
+            this.fichasJ2 = this.newFichasArray(this.P2);//Array
+             await this.board.initBoard(this.context);
             this.board.draw();
+            this.setFichasInBoard(this.fichasJ1,this.fichasJ2);
         } catch (error) {
             console.log(error);
         }
@@ -19,6 +28,38 @@ class Juego {
 }
 drawBoard(){
     this.board.draw();
+}
+
+/**
+ * Crea array con fichas
+ * @param {*} player 
+ * @returns Array()
+ */
+newFichasArray(player){
+    let array = new Array();
+
+    for (let i = 0; i <  NumeroFichas; i++) {
+        let newFicha = new Ficha(player.getColor(),this.context);
+        array[i] = newFicha;
+    }
+
+    return array;
+}
+
+/**
+ * Pone las fichas en el tablero
+ * @param {*} f1 
+ * @param {*} f2 
+ */
+setFichasInBoard(f1,f2){
+    
+    let point1 ={x: ((canvas.width - Board_W) / 2 - 115),
+                y: canvas.height / 2 + 100 };
+    let point2 ={x: ((canvas.width - Board_W) / 2 + 470),
+                y: canvas.height / 2 + 100 };
+    f1.forEach(f => { f.setPosition(point1); });
+    f2.forEach(f => { f.setPosition(point2); });
+
 }
 
 /**

@@ -44,7 +44,6 @@ class Board {
         }
         this.rect.draw();
         this.drawBoardDots();
-        this.selectedDropArea = null;
     }
 
     /**

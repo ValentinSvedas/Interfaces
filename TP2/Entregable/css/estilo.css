@@ -1,5 +1,5 @@
 .container{
-    background-color: #ffffff;
+    background-color: rgb(68, 68, 68);
     width: 80%;
     height: 140rem;
     margin: auto;
@@ -17,6 +17,11 @@ body{
     font-size: 18px;    
 }
 
+canvas{
+    border:20px solid #000000;
+    border-style:double;
+    background-color:cadetblue;
+}
 
 body{
     background-color: rgb(68, 68, 68);

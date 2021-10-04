@@ -32,9 +32,7 @@ class Rectangle extends Figure {
         this.context.fill();
         
         if ( this.fill instanceof Image ){
-            // clip
             this.context.clip();
-            // insert the image
             this.context.drawImage(
                 this.fill,
                 this.posX,
