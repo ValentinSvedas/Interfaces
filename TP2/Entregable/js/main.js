@@ -8,15 +8,15 @@ let menu = null;
 let BoardColumns = 5;
 let BoardRows = 5;
 
-let Board_W = 0;
-let Board_H = 0;
+var Board_W = 0;
+var Board_H = 0;
 var NumeroFichas = 0;
 var imgP1 = 'images/pink-circle.png';
 var imgP2 = 'images/purple-circle.png';
 
  function main() {
-    BoardColumns = 5;
-    BoardRows = 5;
+    BoardColumns = 6;
+    BoardRows = 6;
     
     Board_W = (30 * 2) * BoardColumns + 10 * BoardColumns;
     Board_H = (30 * 2) * BoardRows + 10 * BoardRows;

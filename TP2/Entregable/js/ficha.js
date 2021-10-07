@@ -13,10 +13,26 @@ class Ficha {
     draw(){
         this.ficha.draw();
     }
+    drawDisabled(){
+        this.ficha.drawDisabled();
+    }
 
     setPosition(point){
         this.ficha.setPosition(point);
-        this.draw();
     }
+    
+    isInside(point){
+        return this.ficha.isInside(point);
+    }
+    
+    setInBoard(){
+        this.inBoard = true;
+    }
+    
+    notInBoard(){
+        return !this.inBoard;
+    }
+    
+
 
 }

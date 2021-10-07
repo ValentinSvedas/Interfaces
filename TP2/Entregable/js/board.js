@@ -5,9 +5,7 @@ class Board {
     constructor (context){
         this.nJuego = null;
         this.rect = null;
-        
         this.areaFicha = null;
-
         this.context = context;
 
 
@@ -63,6 +61,7 @@ class Board {
             }
         }
     }
+    
 
     /**
      * Crea los rectangulos añadiendole la imagen de los triangulos

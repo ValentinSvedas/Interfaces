@@ -21,15 +21,24 @@ class Circle extends Figure{
                 this.radius * 2);
         }
     }
+    isInside(point){
+        let distance =  (point.x - this.posX) * (point.x - this.posX) +
+        (point.y - this.posY) * (point.y - this.posY);
+        if (distance < (this.radius) * (this.radius)) {
+            return true;
+        }
+        return false;
+    }
 
     getRadius(){
         return this.radius;
     }
-
-    isInside(x,y){
-        let _x = this.posX - x;
-        let _y = this.posY - y;
-        return Math.sqrt(_x * _x + _y * _y)< this.radius;
+    
+    drawDisabled(){
+        this.draw();
+        let currentFill = this.getFill();
+        this.draw();
+        this.setFill(currentFill);
     }
 
 }
