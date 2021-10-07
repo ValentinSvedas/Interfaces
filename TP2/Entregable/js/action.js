@@ -44,6 +44,13 @@ class Action {
         if (fichaSelect) {
             let mousePos = Action.getMousePos(e);
             fichaSelect.setPosition(mousePos);
+            
+            let board = juego.getBoard();
+            let posColumn = board.checkColumn(mousePos);
+            if (posColumn != null){
+                board.setDropSlot(posColumn);
+            }
+
             juego.clearCanvas();
             juego.drawBoard();
             juego.drawFichas();

@@ -7,9 +7,10 @@ class Board {
         this.rect = null;
         this.areaFicha = null;
         this.context = context;
-
-
-
+        this.cantSlots = BoardColumns * BoardRows;
+        this.ultimaFicha = null;
+        this.primerFicha = null;
+        this.dropSlot=null;
     }
 
      async initBoard(){
@@ -61,7 +62,7 @@ class Board {
             }
         }
     }
-    
+
 
     /**
      * Crea los rectangulos añadiendole la imagen de los triangulos
@@ -69,13 +70,10 @@ class Board {
      * @returns Array()
      */
     async newAreaFicha(context){
-
         let dropArea = new Array();
 
         let image = await Board.loadImage('images/triangleArea.png');
-
         for (let i = 1; i <= BoardColumns; i++){
-            
             let dropRectanguloPos = new Rectangle(
                 (canvas.width - Board_W) / 2 + (Board_W / BoardColumns) * (i - 1),
                 0,
@@ -83,17 +81,34 @@ class Board {
                 (canvas.height - Board_H) / 2 ,
                 image,
                 context
-            );
-            
+            ); 
             dropArea.push(dropRectanguloPos);
-
         }
-
         return dropArea;
-
     }
 
-    //Pueden ir en otro archivo 
+    //Logica matriz fichas en tablero
+    checkColumn(mousePos) {
+        for (let i = 0; i < BoardColumns; i++) {
+            if (this.areaFicha[i].isInsideR(mousePos)){ //Recorre los slots para soltar el area a ver si la posicion del mosue se encuentra ahi
+                return i;
+            }
+        }
+        return null;
+    }
+ 
+    
+
+    setDropSlot(column){
+        this.dropSlot = column;
+    }
+
+    getDropSlot(){
+        return this.dropSlot;
+    }
+
+
+    //Pueden ir en otro js 
 
     static loadImage(src){
         return new Promise((resolve, reject) => {
@@ -103,5 +118,6 @@ class Board {
             img.onerror = reject;
         });
     }
+    
 
 }

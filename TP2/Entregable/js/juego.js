@@ -33,6 +33,9 @@ class Juego {
 drawBoard(){
     this.board.draw();
 }
+getBoard(){
+    return this.board;
+}
 /**
  * Dibuja todas las fichas
  */
@@ -119,15 +122,12 @@ setFichasInBoard(f1,f2){
  */
 static newJuego(){ 
     let nJuego = new Array();
-
     for (let i = 1; i <= BoardColumns; i++){ //Agarra la posicion de las columnas
         let column = new Array();
         let posX = ( (canvas.width - Board_W) / 2 ) + ( ((2 * i) - 1) * ((Board_W / BoardColumns) / 2) );
 
         for (let j = 1; j <= BoardRows; j++){//Agarra la posicion de las filas
-           
             let posY = ( (canvas.height - Board_H) / 2 ) + ( ((2 * j) - 1) * ((Board_H / BoardRows) / 2) );
-
             let newSlot = new Slot(null,posX,posY); //Crea los espacios
             column.push(newSlot);
         }

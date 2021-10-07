@@ -14,4 +14,7 @@ class Slot{
     getPosY(){
         return this.posY;
     }
+    getPos(){
+        return {x: this.posX, y:posY}
+    }
 }

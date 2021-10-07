@@ -14,7 +14,7 @@ class Rectangle extends Figure {
         return this.height;
     }
 
-    isPointInside(point){
+    isInsideR(point){
         return this.posX <= point.x && point.x <= this.posX + this.width &&
                this.posY <= point.y && point.y <= this.posY + this.height;
     }
