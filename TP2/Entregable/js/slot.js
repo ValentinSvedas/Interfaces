@@ -8,6 +8,9 @@ class Slot{
     getEstado(){
         return this.estado;
     }
+    setEstado(player){
+        this.estado = player;
+    }
     getPosX(){
         return this.posX;
     }
@@ -15,6 +18,6 @@ class Slot{
         return this.posY;
     }
     getPos(){
-        return {x: this.posX, y:posY}
+        return {x: this.posX, y:this.posY}
     }
 }

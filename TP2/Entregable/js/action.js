@@ -24,20 +24,33 @@ class Action {
         }
     }
     static onMouseUp(e) {
-
         let fichaSelect = juego.getFichaSelect();
 
         if (fichaSelect) {
-            juego.clearCanvas();
-            juego.drawBoard();
-            juego.drawFichas();
-            juego.setFichaSelect(null);
-        }
+            let mousePos = Action.getMousePos(e);
+            let player = juego.getTurno();
+            let board = juego.getBoard();
+            let posColumn = board.checkColumn(mousePos);
+            let setPosFicha = null;
+            if (posColumn != null){
+                let posRows = board.getFirstSlot(posColumn);
+                if ( posRows != null ){
+                    setPosFicha = board.insertFichaOnBoard(player,posColumn,posRows);
+                    fichaSelect.setPosition(setPosFicha);//posiciona la ficha
+                    fichaSelect.setInBoard();//le indica que esta en el tablero
+                }    
+            }
+
+        juego.clearCanvas();
+        juego.drawBoard();
+        juego.drawFichas();
+        juego.setFichaSelect(null);
 
         canvas.removeEventListener("mousemove", Action.handleMouseMove);
         canvas.removeEventListener("mouseup", Action.handleMouseUp);
 
     }
+}
 
     static onMouseMove(e) {
         let fichaSelect = juego.getFichaSelect();

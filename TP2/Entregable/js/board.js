@@ -71,8 +71,8 @@ class Board {
      */
     async newAreaFicha(context){
         let dropArea = new Array();
-
         let image = await Board.loadImage('images/triangleArea.png');
+
         for (let i = 1; i <= BoardColumns; i++){
             let dropRectanguloPos = new Rectangle(
                 (canvas.width - Board_W) / 2 + (Board_W / BoardColumns) * (i - 1),
@@ -81,24 +81,49 @@ class Board {
                 (canvas.height - Board_H) / 2 ,
                 image,
                 context
-            ); 
+            );
             dropArea.push(dropRectanguloPos);
         }
         return dropArea;
+
     }
 
-    //Logica matriz fichas en tablero
-    checkColumn(mousePos) {
+     //Logica matriz fichas en tablero
+     checkColumn(mousePos) {
         for (let i = 0; i < BoardColumns; i++) {
             if (this.areaFicha[i].isInsideR(mousePos)){ //Recorre los slots para soltar el area a ver si la posicion del mosue se encuentra ahi
                 return i;
             }
         }
         return null;
+        
     }
- 
-    
+    getFirstSlot(column){
+        for (let i = BoardRows - 1; i >= 0; i--){
+            if (this.nJuego[column][i].getEstado() == null){
+                return i;
+            }
+        }
+        return null;
+    }
 
+    /**
+     * Inserta ficha en el tablero
+     * @param {*} color 
+     * @param {*} posColumn 
+     * @param {*} posRow 
+     * @returns 
+     */
+    insertFichaOnBoard(player,posColumn,posRow){
+        if (posRow != null) {
+            this.nJuego[posColumn][posRow].setEstado(player);
+            this.ultimaFicha = this.nJuego[posColumn][posRow];
+            this.cantSlots--;
+            return this.nJuego[posColumn][posRow].getPos();
+        }
+    }
+
+  
     setDropSlot(column){
         this.dropSlot = column;
     }
