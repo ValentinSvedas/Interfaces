@@ -1,12 +1,15 @@
 class Slot{
-    constructor(estado, posX, posY){
-        this.estado = estado
+    constructor(posX, posY){
+        this.estado = null
         this.posX = posX
         this.posY = posY
     }
 
     getEstado(){
         return this.estado;
+    }
+    setEstado(pName){
+        this.estado = pName;
     }
     getPosX(){
         return this.posX;
@@ -15,6 +18,6 @@ class Slot{
         return this.posY;
     }
     getPos(){
-        return {x: this.posX, y:posY}
+        return {x: this.posX, y:this.posY}
     }
 }

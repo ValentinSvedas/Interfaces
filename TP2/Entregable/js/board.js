@@ -71,8 +71,8 @@ class Board {
      */
     async newAreaFicha(context){
         let dropArea = new Array();
-
         let image = await Board.loadImage('images/triangleArea.png');
+
         for (let i = 1; i <= BoardColumns; i++){
             let dropRectanguloPos = new Rectangle(
                 (canvas.width - Board_W) / 2 + (Board_W / BoardColumns) * (i - 1),
@@ -81,24 +81,51 @@ class Board {
                 (canvas.height - Board_H) / 2 ,
                 image,
                 context
-            ); 
+            );
             dropArea.push(dropRectanguloPos);
         }
         return dropArea;
+
     }
 
-    //Logica matriz fichas en tablero
-    checkColumn(mousePos) {
+     //Logica matriz fichas en tablero
+     checkColumn(mousePos) {
         for (let i = 0; i < BoardColumns; i++) {
             if (this.areaFicha[i].isInsideR(mousePos)){ //Recorre los slots para soltar el area a ver si la posicion del mosue se encuentra ahi
                 return i;
             }
         }
         return null;
+        
     }
- 
-    
+    getFirstSlot(column){
+        for (let i = BoardRows - 1; i >= 0; i--){ //Empieza desde abajo del todo
+            if (this.nJuego[column][i].getEstado() == null){
+                return i;
+            }
+        }
+        return null;
+    }
 
+    /**
+     * Inserta ficha en el tablero
+     * @param {*} color 
+     * @param {*} posColumn 
+     * @param {*} posRow 
+     * @returns 
+     */
+    insertFichaOnBoard(player,posColumn,posRow){
+        if (posRow != null) {
+            this.nJuego[posColumn][posRow].setEstado(player.getNombre());
+            this.ultimaFicha = new Ficha(player.getImageColor(),this.context)
+            this.ultimaFicha.setPosY(posColumn)
+            this.ultimaFicha.setPosX(posRow)
+            this.cantSlots--;
+            return this.nJuego[posColumn][posRow].getPos();
+        }
+    }
+
+  
     setDropSlot(column){
         this.dropSlot = column;
     }
@@ -106,7 +133,11 @@ class Board {
     getDropSlot(){
         return this.dropSlot;
     }
+    getUltimaFicha(){
+        return this.ultimaFicha;
+    }
 
+    
 
     //Pueden ir en otro js 
 
@@ -118,6 +149,80 @@ class Board {
             img.onerror = reject;
         });
     }
+    checkCuatroEnLinea(){
+        let maxInRow = Logica.sumFiachas(this.nJuego,this.arrayRow(this.ultimaFicha.getPosY()));
+        let maxInColumn = Logica.sumFiachas(this.nJuego,this.arrayColumn(this.ultimaFicha.getPosX()));
+        let maxInDiagA = Logica.sumFiachas(this.nJuego,this.diagonal1(this.ultimaFicha));
+        let maxInDiagB = Logica.sumFiachas(this.nJuego,this.diagonal2(this.ultimaFicha));
+        
+        return maxInRow == 4 || maxInColumn == 4 || maxInDiagA == 4 || maxInDiagB == 4; 
+    }
     
+    /**
+     * Agarra todos los casilleros en fila
+     * @param {*} row 
+     * @returns 
+     */
+    arrayRow(row){
+        let arr = new Array();
+        for (let col = 0; col < BoardColumns; col++){
+            arr.push({i: col, j: row})
+        }
+        return arr;
+    }
+     /**
+     * Agarra todos los casilleros en columna
+     * @param {*} row 
+     * @returns 
+     */
+    arrayColumn(col){
+        let arr = new Array();
+        for (let row = 0; row < BoardRows; row++){
+            arr.push({i: col, j: row})
+        }
+        return arr;
+    }
+    /**
+     * Agarra todos los casilleros en diagonal
+     * @param {*} row 
+     * @returns 
+     */
+    diagonal1(fichaActual){
+        let arr = new Array();
+        let col = fichaActual.getPosY();
+        let row = fichaActual.getPosX();
+        while ((col > 0) && (row > 0)){
+            col--;
+            row--;
+        }
+        while ((col < BoardColumns) && (row < BoardRows)) {
+            arr.push({i: col, j: row});
+            col++;
+            row++;
+        }
+        return arr;
+    
+    }
+     /**
+     * Agarra todos los casilleros en diagonal
+     * @param {*} row 
+     * @returns 
+     */
+    diagonal2(fichaActual){
+        let arr = new Array();
+        let col = fichaActual.getPosY();
+        let row = fichaActual.getPosX();
+        while ((col + 1 < BoardColumns) && (row > 0)){
+            col++;
+            row--;
+        }
+        while ((col >= 0) && (row < BoardRows)) {
+            arr.push({i: col, j: row});
+            col--;
+            row++;
+        }
+        return arr;
+    
+    }
 
 }

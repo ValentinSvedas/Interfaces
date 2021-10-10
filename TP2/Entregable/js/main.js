@@ -29,49 +29,4 @@ var imgP2 = 'images/purple-circle.png';
     juego.inicioJuego();
 }    
 
-/*
-function onClick(e) {
-    let posX = e.layerX
-    let posY = e.layerY
-    let color = '#ffffff'
-   
-    let circle = new Circle(posX,posY,tam,color, ctx);
-    
-    circle.draw();
-        
-}
-
-
-function onMouseDown(e) {
-    this.isMouseDown = true;
-    let posX = e.layerX
-    let posY = e.layerY
-    let color ='#ffffff'
-
-    let circle = new Circle(posX,posY,tam,color, ctx);
-    
-    circle.draw();
-        
-}
-function onMouseMove(e) {
-    if (this.isMouseDown) {
-        let posX = e.layerX
-        let posY = e.layerY
-        let color ='#ffffff'
-        let circle = new Circle(posX,posY,tam,color, ctx);
-      
-        circle.draw();
-        
-    }
-}
-
-*/
-
-
-
 document.addEventListener("DOMContentLoaded", main);
-/*
-canvas.addEventListener('click',onClick, false);
-canvas.addEventListener('mousedown',onMouseDown, false);
-canvas.addEventListener('mousemove',onMouseMove, false);
-*/

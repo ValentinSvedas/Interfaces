@@ -33,7 +33,12 @@ class Circle extends Figure{
     getRadius(){
         return this.radius;
     }
-    
+    getPosX(){
+        return this.posX;
+    }
+    getPosY(){
+        return this.posY;
+    }
     drawDisabled(){
         this.draw();
         let currentFill = this.getFill();

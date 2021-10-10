@@ -20,7 +20,18 @@ class Ficha {
     setPosition(point){
         this.ficha.setPosition(point);
     }
-    
+    setPosX(pY){
+        this.ficha.posY =pY;
+    }
+    setPosY(pX){
+        this.ficha.posX =pX;
+    }
+    getPosX(){
+        return this.ficha.getPosX();
+    }
+    getPosY(){
+        return this.ficha.getPosY();
+    }
     isInside(point){
         return this.ficha.isInside(point);
     }

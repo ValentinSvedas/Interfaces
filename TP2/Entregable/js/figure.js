@@ -29,6 +29,7 @@ class Figure{
     getPosY(){
         return this.posY;
     }
+   
     getFill(){
         return this.fill;
     }

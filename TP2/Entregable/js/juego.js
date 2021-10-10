@@ -14,8 +14,8 @@ class Juego {
         this.clearCanvas();
         this.board = new Board(this.context);
         try {
-            this.P1 = new Player(await Board.loadImage(imgP1),"Jugador 1",this.context); //Poner color en una variable global
-            this.P2 = new Player(await Board.loadImage(imgP2),"Jugador 2",this.context); //Poner color en una variable global
+            this.P1 = new Player(await Board.loadImage(imgP1),"J1",this.context); //Poner color en una variable global
+            this.P2 = new Player(await Board.loadImage(imgP2),"J2",this.context); //Poner color en una variable global
             this.turno = this.P1;
             this.P1.setFichas(this.newFichasArray(this.P1));//Setea las fichas de cada jugador
             this.P2.setFichas(this.newFichasArray(this.P2));
@@ -128,7 +128,7 @@ static newJuego(){
 
         for (let j = 1; j <= BoardRows; j++){//Agarra la posicion de las filas
             let posY = ( (canvas.height - Board_H) / 2 ) + ( ((2 * j) - 1) * ((Board_H / BoardRows) / 2) );
-            let newSlot = new Slot(null,posX,posY); //Crea los espacios
+            let newSlot = new Slot(posX,posY); //Crea los espacios
             column.push(newSlot);
         }
         nJuego.push(column);
