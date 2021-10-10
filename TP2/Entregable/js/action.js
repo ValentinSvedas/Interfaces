@@ -40,16 +40,30 @@ class Action {
                     fichaSelect.setPosition(setPosFicha);//posiciona la ficha
                     fichaSelect.setInBoard();//le indica que esta en el tablero
                     if (board.checkCuatroEnLinea()) {
-                        console.log("ganador "+ player)
+                        juego.setGanador(player)
                     }else{
-                        juego.nextTurno();
+                        if (board.getCantSlots() == 0) {
+                            juego.empate();
+                        }else{
+                            juego.nextTurno();
+                        }
                     }
                 }    
             }
-        juego.clearCanvas();
-        juego.drawBoard();
-        juego.drawFichas();
-        juego.setFichaSelect(null);
+            juego.clearCanvas();
+            juego.drawBoard();
+            juego.drawFichas();
+            juego.setFichaSelect(null);
+            if (juego.getGanador() != null) {
+                juego.ganadorText(juego.getGanador())
+            }else if (board.getCantSlots() == 0){
+                juego.empate();
+            }else{
+                Juego.textTurn(juego.getTurno());
+                Juego.text();
+                Juego.iniciarNuevoJuego();
+            }
+
 
         canvas.removeEventListener("mousemove", Action.handleMouseMove);
         canvas.removeEventListener("mouseup", Action.handleMouseUp);
@@ -72,6 +86,8 @@ class Action {
             juego.clearCanvas();
             juego.drawBoard();
             juego.drawFichas();
+            Juego.textTurn(juego.getTurno());
+            Juego.text();
 
         }
     }

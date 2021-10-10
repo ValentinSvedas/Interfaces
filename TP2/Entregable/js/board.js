@@ -136,6 +136,9 @@ class Board {
     getUltimaFicha(){
         return this.ultimaFicha;
     }
+    getCantSlots(){
+        return this.cantSlots;
+    }
 
     
 

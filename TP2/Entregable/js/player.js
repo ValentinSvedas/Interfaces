@@ -1,8 +1,13 @@
 class Player{
-    constructor(imageColor,nombre){
+    constructor(imageColor,nombre,color){
         this.imageColor = imageColor
         this.nombre = nombre
         this.fichas = new Array();
+        this.color = color;
+    }
+
+    getColor(){
+        return this.color;
     }
 
     getImageColor(){

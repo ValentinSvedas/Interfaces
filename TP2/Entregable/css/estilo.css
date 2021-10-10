@@ -9,6 +9,10 @@
     justify-content: center;
     margin-top: 10px;
 }
+.config{
+    display: flex;
+    justify-content: flex-start;
+}
 
 body{
     margin: 0;

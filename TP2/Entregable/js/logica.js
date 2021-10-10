@@ -22,7 +22,6 @@ class Logica{
  * @returns 
  */
     static getPosInArray(array,ficha){
-        console.log(ficha)
         for (let i = 0; i < array.length; i++){
             if ((array[i].i == ficha.getPosX()) && (array[i].j == ficha.getPosY()) ){
                 return i;

@@ -8,19 +8,30 @@ class Juego {
         this.turno = null;
         this.fichaSelect=null;
         this.actions = null;
+        this.img1 = null;
+        this.img2 = null;
+        this.colorP1=null;
+        this.colorP2=null;
+        this.ganador=null;
     }
 
     async inicioJuego(){
         this.clearCanvas();
         this.board = new Board(this.context);
+        this.colorP1 = document.querySelector('#colorP1').value
+        this.colorP2 = document.querySelector('#colorP2').value
+        this.img1 = this.selectColorCoin(this.colorP1)
+        this.img2 = this.selectColorCoin(this.colorP2)
         try {
-            this.P1 = new Player(await Board.loadImage(imgP1),"J1",this.context); //Poner color en una variable global
-            this.P2 = new Player(await Board.loadImage(imgP2),"J2",this.context); //Poner color en una variable global
+            this.P1 = new Player(await Board.loadImage(this.img1),"Jugador 1",this.colorP1); //Poner color en una variable global
             this.turno = this.P1;
+            this.P2 = new Player(await Board.loadImage(this.img2),"Jugador 2",this.colorP2); //Poner color en una variable global
             this.P1.setFichas(this.newFichasArray(this.P1));//Setea las fichas de cada jugador
             this.P2.setFichas(this.newFichasArray(this.P2));
             await this.board.initBoard(this.context);
             this.board.draw();
+            Juego.text();
+            Juego.textTurn(this.P1);
             this.setFichasInBoard(this.P1.getFichas(),this.P2.getFichas());//Pone las fichas en el tablero
             this.drawFichas();
         } catch (error) {
@@ -30,11 +41,34 @@ class Juego {
         canvas.addEventListener("mousedown", this.actions.onMouseDown);
 }
 
+selectColorCoin(id) {
+    if (id == "purple") {
+        return 'images/purple-circle.png';
+    }else if (id == "pink") {
+        return 'images/pink-circle.png';
+    }else if (id =='red') {
+      return 'images/Red_circle.png';
+    }else if (id == 'yellow') {
+        return 'images/yellow_circle.png';
+    }
+  }
+  getGanador(){
+    return this.ganador
+}
+setGanador(p){
+    this.ganador = p;
+}
 drawBoard(){
     this.board.draw();
 }
 getBoard(){
     return this.board;
+}
+getP1(){
+    return this.P1;
+}
+getP2(){
+    return this.P2;
 }
 /**
  * Dibuja todas las fichas
@@ -56,12 +90,13 @@ drawFichas(){
     })
 }
 /**
- * Setea el turno del juegador
+ * Setea el turno del jugador
  * @param {*} turno 
  */
 setTurno(turno){
     this.turno = turno;
 }
+
 getFichaSelect(){
     return this.fichaSelect;
 }
@@ -143,6 +178,44 @@ static newJuego(){
     this.context.fillStyle = "#ffffff";
     this.context.fill();
 }
+ 
+static text(){
+ 
+    ctx.font = "35px monospace";
+    ctx.textAlign = "center";
+    ctx.strokeText("Cuatro en linea", (canvas.width) / 2,580); 
+    ctx.font = "30px Arial";
+    ctx.fillStyle =juego.colorP2;
+    ctx.fillText("Fichas J2", (canvas.width - Board_W) / 2 - 120,150);
+    ctx.fillStyle = juego.colorP1;
+    ctx.fillText("Fichas J1", (canvas.width - Board_W) / 2 - 120,350);
+    ctx.fillStyle = "black";
+    ctx.fillText("Turno jugador:", (canvas.width) /1.12 ,250);  
+}
+static textTurn(P){
+    ctx.font = "30px Arial";
+    ctx.textAlign = "center";
+    ctx.fillStyle = P.getColor();
+    ctx.fillText("Turno "+ P.getNombre(), (canvas.width) /1.12 ,300);
+}
+
+ ganadorText(P){
+    ctx.font = "30px bold italic";
+    ctx.textAlign = "center";
+    ctx.fillStyle = 'black';
+    ctx.fillText( P.getNombre(), (canvas.width) /1.12 ,100);
+    ctx.fillStyle = 'black';
+    ctx.fillText("Ganador: ", (canvas.width) /1.12 ,50);
+}
+ empate(){
+    this.turno = null;
+    ctx.font = "30px bold italic";
+    ctx.textAlign = "center";
+    ctx.fillStyle = "Grey";
+    ctx.fillText("Empate ", (canvas.width) /1.12 ,100);
+
+}
+
 }
 
 
