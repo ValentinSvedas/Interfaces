@@ -39,6 +39,7 @@ class Action {
                     setPosFicha = board.insertFichaOnBoard(player,posColumn,posRows);
                     fichaSelect.setPosition(setPosFicha);//posiciona la ficha
                     fichaSelect.setInBoard();//le indica que esta en el tablero
+<<<<<<< HEAD
                     if (board.checkCuatroEnLinea()) {
                         console.log("ganador "+ player)
                     }else{
@@ -46,6 +47,11 @@ class Action {
                     }
                 }    
             }
+=======
+                }    
+            }
+
+>>>>>>> 3ded81a42ccb62e7a8405341a2d093564f35fcae
         juego.clearCanvas();
         juego.drawBoard();
         juego.drawFichas();
