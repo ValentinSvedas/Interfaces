@@ -38,7 +38,12 @@ class Juego {
             console.log(error);
         }
         this.actions = new Action(this.P1,this.P2);
+        buttonReinicio.addEventListener("click", Juego.iniciarNuevoJuego)
         canvas.addEventListener("mousedown", this.actions.onMouseDown);
+}
+
+static iniciarNuevoJuego(){
+    juego.inicioJuego();
 }
 
 selectColorCoin(id) {
@@ -50,6 +55,12 @@ selectColorCoin(id) {
       return 'images/Red_circle.png';
     }else if (id == 'yellow') {
         return 'images/yellow_circle.png';
+    }else if (id == 'brown') {
+        return 'images/brown-circle.png';
+    }else if (id == 'cyan') {
+        return 'images/cyan-circle.png';
+    }else if (id == 'blue') {
+        return 'images/blue-circle.png';
     }
   }
   getGanador(){

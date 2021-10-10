@@ -6,6 +6,7 @@ let ctx= null;
 let menu = null;
 let BoardColumns = 5;
 let BoardRows = 5;
+var buttonReinicio=document.querySelector("#reinicio")
 
 var Board_W = 0;
 var Board_H = 0;
@@ -16,6 +17,7 @@ var config = document.querySelector("#config");
 
 function mostrarJuego() {
     canvas.style.display = 'block';
+    buttonReinicio.style.display = 'block';
     config.style.display = 'none';
 }
 
@@ -26,6 +28,7 @@ function mostrarJuego() {
     canvas = document.querySelector("#myCanvas");
     ctx = canvas.getContext("2d");
     canvas.style.display = 'none';
+    buttonReinicio.style.display = 'none';
     juego = new Juego(ctx);
     buttonEmpezar.addEventListener("click", empezar)
 }   

@@ -61,7 +61,6 @@ class Action {
             }else{
                 Juego.textTurn(juego.getTurno());
                 Juego.text();
-                Juego.iniciarNuevoJuego();
             }
 
 
