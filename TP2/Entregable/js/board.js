@@ -99,17 +99,12 @@ class Board {
         
     }
     getFirstSlot(column){
-<<<<<<< HEAD
         for (let i = BoardRows - 1; i >= 0; i--){ //Empieza desde abajo del todo
-=======
-        for (let i = BoardRows - 1; i >= 0; i--){
->>>>>>> 3ded81a42ccb62e7a8405341a2d093564f35fcae
             if (this.nJuego[column][i].getEstado() == null){
                 return i;
             }
         }
         return null;
-<<<<<<< HEAD
     }
 
     /**
@@ -130,26 +125,6 @@ class Board {
         }
     }
 
-=======
-    }
-
-    /**
-     * Inserta ficha en el tablero
-     * @param {*} color 
-     * @param {*} posColumn 
-     * @param {*} posRow 
-     * @returns 
-     */
-    insertFichaOnBoard(player,posColumn,posRow){
-        if (posRow != null) {
-            this.nJuego[posColumn][posRow].setEstado(player);
-            this.ultimaFicha = this.nJuego[posColumn][posRow];
-            this.cantSlots--;
-            return this.nJuego[posColumn][posRow].getPos();
-        }
-    }
-
->>>>>>> 3ded81a42ccb62e7a8405341a2d093564f35fcae
   
     setDropSlot(column){
         this.dropSlot = column;
