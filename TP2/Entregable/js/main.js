@@ -20,7 +20,12 @@ function mostrarJuego() {
     buttonReinicio.style.display = 'block';
     config.style.display = 'none';
 }
-
+ /**
+  * reinicia el juego despues de determinado tiempo 
+  * */ 
+function setTimer() {
+    setTimeout(Juego.iniciarNuevoJuego, 180000);//en 3 minutos se reinicia el juego
+}
 
  function main() {
     let buttonEmpezar = document.querySelector('#empezar')
@@ -31,10 +36,12 @@ function mostrarJuego() {
     buttonReinicio.style.display = 'none';
     juego = new Juego(ctx);
     buttonEmpezar.addEventListener("click", empezar)
+   
 }   
 async function empezar() {
-    BoardColumns = document.querySelector("#columnas").value;
-    BoardRows = document.querySelector("#filas").value;
+    setTimer();
+    BoardColumns = document.querySelector("#dimColFil").value;
+    BoardRows = document.querySelector("#dimColFil").value;
         Board_W = (30 * 2) * BoardColumns + 10 * BoardColumns;
         Board_H = (30 * 2) * BoardRows + 10 * BoardRows;
         NumeroFichas = (BoardColumns * BoardRows) / 2;

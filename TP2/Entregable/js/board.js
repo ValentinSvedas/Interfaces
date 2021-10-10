@@ -158,7 +158,7 @@ class Board {
         let maxInDiagA = Logica.sumFiachas(this.nJuego,this.diagonal1(this.ultimaFicha));
         let maxInDiagB = Logica.sumFiachas(this.nJuego,this.diagonal2(this.ultimaFicha));
         
-        return maxInRow == 4 || maxInColumn == 4 || maxInDiagA == 4 || maxInDiagB == 4; 
+        return maxInRow == BoardColumns || maxInColumn == BoardColumns || maxInDiagA == BoardColumns || maxInDiagB == BoardColumns; 
     }
     
     /**
