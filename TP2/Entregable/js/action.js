@@ -94,10 +94,12 @@ class Action {
 
     //Pueden ir en otro js
     static getMousePos(e) {
-        let bp = e.target.getBoundingClientRect();
+        let bp = canvas.getBoundingClientRect();
+        let scaleX = canvas.width / bp.width,   
+        scaleY = canvas.height / bp.height;
         return {
-            x: e.clientX - bp.left,
-            y: e.clientY - bp.top
+            x: (e.clientX - bp.left) * scaleX,   
+            y: (e.clientY - bp.top) * scaleY 
         };
 
     }

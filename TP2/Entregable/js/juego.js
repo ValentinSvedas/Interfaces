@@ -34,6 +34,7 @@ class Juego {
             Juego.textTurn(this.P1);
             this.setFichasInBoard(this.P1.getFichas(),this.P2.getFichas());//Pone las fichas en el tablero
             this.drawFichas();
+            this.ganador = null;
         } catch (error) {
             console.log(error);
         }

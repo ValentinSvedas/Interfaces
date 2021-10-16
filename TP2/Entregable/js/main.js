@@ -42,8 +42,8 @@ async function empezar() {
     setTimer();
     BoardColumns = document.querySelector("#dimColFil").value;
     BoardRows = document.querySelector("#dimColFil").value;
-        Board_W = (30 * 2) * BoardColumns + 10 * BoardColumns;
-        Board_H = (30 * 2) * BoardRows + 10 * BoardRows;
+        Board_W = (25 * 2) * BoardColumns + 10 * BoardColumns;
+        Board_H = (25 * 2) * BoardRows + 10 * BoardRows;
         NumeroFichas = (BoardColumns * BoardRows) / 2;
         mostrarJuego();
         juego.inicioJuego();

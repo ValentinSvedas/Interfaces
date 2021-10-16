@@ -22,9 +22,10 @@ class Circle extends Figure{
         }
     }
     isInside(point){
-        let distance =  (point.x - this.posX) * (point.x - this.posX) +
-        (point.y - this.posY) * (point.y - this.posY);
-        if (distance < (this.radius) * (this.radius)) {
+        let _x = this.posX - point.x;
+        let _y = this.posY - point.y;
+       
+        if (Math.sqrt(_x * _x + _y * _y)< this.radius) {
             return true;
         }
         return false;

@@ -1,8 +1,8 @@
 class Ficha {
     
     constructor (imageColor,context){
-        
         this.ficha = new Circle(512,50,25,imageColor,context);
+
         this.inBoard = false;
 
     }
