@@ -1,0 +1,47 @@
+@import 'animation.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+html,body {
+    background:#000;
+    width: 85rem;
+    height: 42rem;
+  }
+
+
+#sky{
+    height: 100%;
+    width: 100%;
+    background:url(../images/fondo.png) repeat-X;
+    animation: movebg 15s linear infinite;
+    position:relative;
+}
+.bird {
+    width:150px;
+    height:207px;
+    margin:auto;  
+    background:url(../images/reaven.png) left center; /* 1865x623 */
+    animation:fly.2s steps(8) infinite;
+    position:relative;
+    top: 20%;
+    right: 35%;
+  }
+
+.pjVolar{
+    width:150px;
+    height:207px;
+    top: 20%;
+    right: 35%;
+    margin:auto;  
+    background:url(../images/reaven.png) left center; 
+    animation:volar 0.5s forwards;
+    position:relative;
+    
+}
+

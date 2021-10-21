@@ -1,0 +1,21 @@
+
+@keyframes movebg {
+    0% { background-position:1920px } 
+    100% { background-position:0 }
+  }
+  @keyframes fly {
+    0% { background-position:0 }
+    100% { background-position:-1656px }
+}
+@keyframes gravity {/*cubic-bezier(.67,.22,.23,.94)*/
+    0%{}
+    100%{top: 100%;
+        transform:rotateZ(80deg);}
+}
+@keyframes volar {
+    0%{}
+    10%{transform:rotateZ(-60deg);}
+    100%{transform: translateY(-40%), rotateZ(-80deg);
+        }
+}
+  
