@@ -12,86 +12,91 @@ html,body {
     width: 85rem;
     height: 42.5rem;
   }
-
-.bird {
-  width:102px;
-  height:85px;
-    margin:auto;  
-    background:url(../images/reven.png); /* 1865x623 */
-    animation:fly.4s steps(5) infinite;
-    position:relative;
-    right: 35%;
-  }
-
-.pjVolar{
-     width:100px;
+  .bird,.pjvolar,.pjcaer{
+    background:url(../images/reven.png); 
+    width:102px;
     height:85px;
     right: 35%;
-    margin:auto;  
-    background:url(../images/reven.png); 
-    animation:volar 0.5s forwards, aleteo 0.3s steps(2) forwards;
     position:relative;
-    
+    margin:auto;  
+  }
+  .naranja,.arboles,.montanas,.nubes,.suelo{
+    height: 100%;
+    width: 100%;
+  }
+
+.bird {
+    top: 20%;
+    animation:fly.4s steps(5) infinite 0.10ms;
+  } 
+
+.pjvolar{
+    top: 20%;
+    animation:volar 1s forwards 0.15s , aleteoVolar 0.3s steps(2) forwards;
 }
+
+.pjcaer{
+    top: 0%;
+    animation:caer 0.5s forwards 0.1s , aleteoCaer 0.4s steps(1) forwards;
+}
+@keyframes caer {
+  0%{top: 0%;}
+  25%{transform:rotateZ(40deg);}
+  100%{top: 20%;}
+}
+@keyframes aleteoCaer {
+  0% { background-position: left top}
+  100% { background-position: top left 110px }
+}
+
 @keyframes fly {
   0% { background-position: left top}
   100% { background-position: top left -550px }
 }
 @keyframes volar {
-  0%{}
-  10%{transform:rotateZ(-60deg);}
-  100%{transform: translateY(-40%), rotateZ(-80deg);
+  0%{top: 10%;}
+  10%{transform: rotateZ(-20deg);}
+  25%{transform:rotateZ(-40deg);}
+  60%{transform: rotateZ(-10deg);}
+  100%{top: 0%;
       }
 }
-@keyframes aleteo {
+@keyframes aleteoVolar {
   0%{background-position: top left }
   100%{
-    background-position: top left 220px;
+    background-position: top left 220px;/*220*/
   }
 }
 
-@keyframes gravity {/*cubic-bezier(.67,.22,.23,.94)*/
-  0%{}
-  100%{top: 100%;
-      transform:rotateZ(80deg);}
-}
 /*fondo con parallax*/
 
 .naranja{
-  height: 100%;
-  width: 100%;
   background:url(../images/fondoNaranja.png) repeat-X;
   animation: movebg 30s linear infinite;
   position:relative;
 }
 .nubes{
-height: 100%;
-width: 100%;
 background:url(../images/fondoNube.png) repeat-X;
 animation: movebg 15s linear infinite;
 position:relative;
 }
+
 .montanas{
-height: 100%;
-width: 100%;
 background:url(../images/fondoMontañas.png) repeat-X;
 animation: movebg 40s linear infinite;
 position:relative;
 }
 .arboles{
-height: 100%;
-width: 100%;
 background:url(../images/fondoArboles.png) repeat-X;
 animation: movebg 25s linear infinite;
 position:relative;
 }
 .suelo{
-height: 100%;
-width: 100%;
 background:url(../images/fondoSuelo.png) repeat-X;
 animation: movefloor 15s linear infinite;
 position:relative;
 }
+
 @keyframes movefloor {
   0% { background-position:0px } 
   100% { background-position: -1600px }

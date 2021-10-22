@@ -1,6 +1,5 @@
 
 let bird = document.querySelector('.bird');
-let posBird = null;
 
 function initGame(){
    
@@ -12,10 +11,15 @@ function startGame(){
 }
 
 async function jump(){
-    bird.classList.add("pjVolar")
+    bird.classList.add("pjvolar")
     setTimeout(()=>{
-         bird.classList.remove("pjVolar")
-    },500)
+         bird.classList.remove("pjvolar")
+         bird.classList.add("pjcaer")
+    },1000)
+    setTimeout(()=>{
+        bird.classList.remove("pjcaer")
+    },1600)
 }
+
 
 window.addEventListener('DOMContentLoaded', initGame)
