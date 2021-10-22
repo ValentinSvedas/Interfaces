@@ -1,6 +1,6 @@
 
 let bird = document.querySelector('.bird');
-
+let posBird = null;
 
 function initGame(){
    

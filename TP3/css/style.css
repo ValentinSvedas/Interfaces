@@ -1,4 +1,3 @@
-@import 'animation.css';
 
 * {
     margin: 0;
@@ -11,37 +10,93 @@
 html,body {
     background:#000;
     width: 85rem;
-    height: 42rem;
+    height: 42.5rem;
   }
 
-
-#sky{
-    height: 100%;
-    width: 100%;
-    background:url(../images/fondo.png) repeat-X;
-    animation: movebg 15s linear infinite;
-    position:relative;
-}
 .bird {
-    width:150px;
-    height:207px;
+  width:102px;
+  height:85px;
     margin:auto;  
-    background:url(../images/reaven.png) left center; /* 1865x623 */
-    animation:fly.2s steps(8) infinite;
+    background:url(../images/reven.png); /* 1865x623 */
+    animation:fly.4s steps(5) infinite;
     position:relative;
-    top: 20%;
     right: 35%;
   }
 
 .pjVolar{
-    width:150px;
-    height:207px;
-    top: 20%;
+     width:100px;
+    height:85px;
     right: 35%;
     margin:auto;  
-    background:url(../images/reaven.png) left center; 
-    animation:volar 0.5s forwards;
+    background:url(../images/reven.png); 
+    animation:volar 0.5s forwards, aleteo 0.3s steps(2) forwards;
     position:relative;
     
 }
+@keyframes fly {
+  0% { background-position: left top}
+  100% { background-position: top left -550px }
+}
+@keyframes volar {
+  0%{}
+  10%{transform:rotateZ(-60deg);}
+  100%{transform: translateY(-40%), rotateZ(-80deg);
+      }
+}
+@keyframes aleteo {
+  0%{background-position: top left }
+  100%{
+    background-position: top left 220px;
+  }
+}
 
+@keyframes gravity {/*cubic-bezier(.67,.22,.23,.94)*/
+  0%{}
+  100%{top: 100%;
+      transform:rotateZ(80deg);}
+}
+/*fondo con parallax*/
+
+.naranja{
+  height: 100%;
+  width: 100%;
+  background:url(../images/fondoNaranja.png) repeat-X;
+  animation: movebg 30s linear infinite;
+  position:relative;
+}
+.nubes{
+height: 100%;
+width: 100%;
+background:url(../images/fondoNube.png) repeat-X;
+animation: movebg 15s linear infinite;
+position:relative;
+}
+.montanas{
+height: 100%;
+width: 100%;
+background:url(../images/fondoMontañas.png) repeat-X;
+animation: movebg 40s linear infinite;
+position:relative;
+}
+.arboles{
+height: 100%;
+width: 100%;
+background:url(../images/fondoArboles.png) repeat-X;
+animation: movebg 25s linear infinite;
+position:relative;
+}
+.suelo{
+height: 100%;
+width: 100%;
+background:url(../images/fondoSuelo.png) repeat-X;
+animation: movefloor 15s linear infinite;
+position:relative;
+}
+@keyframes movefloor {
+  0% { background-position:0px } 
+  100% { background-position: -1600px }
+}
+@keyframes movebg {
+  0% { background-position:0px } 
+  100% { background-position: -1920px }
+}
