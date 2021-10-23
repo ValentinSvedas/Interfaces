@@ -7,6 +7,11 @@
     border: none;
     outline: none;
 }
+.puntaje{
+  text-align-last: center;
+  font-size: 50px;
+  margin-top: 20px;
+}
 html,body {
     background:#000;
     width: 85rem;
@@ -14,7 +19,7 @@ html,body {
   }
   .bird,.pjvolar,.pjcaer{
     background:url(../images/reven.png); 
-    width:102px;
+    width:83px;
     height:85px;
     right: 35%;
     position:relative;
@@ -39,15 +44,28 @@ html,body {
     top: 40%;
     animation:caer 0.5s forwards 0.1s , aleteoCaer 0.4s steps(1) forwards;
 }
+.pjdead{
+  animation: die 1s forwards 0.20ms, dieAnimation 0.5s steps(4) forwards ;
+}
+@keyframes die {
+  0%{}
+  100%{top: 75%;}
+}
+@keyframes dieAnimation {
+  0%{
+    background-position: top 120px left -90px}
+  100%{background-position: top 120px  left -452px;}
+
+}
 .meteoro{
+  border-radius: 100px;
   position: absolute;
   height: 80px;
   width: 74px;
   top: 60%;
   margin:auto;  
-  background:url(../images/pumpkin.png);/*462x80*/
+  background:url(../images/pumpkin.png);
   animation: meteoroInScreen 4s linear infinite, pumpkin 0.6s steps(6) infinite;
-
 }
 @keyframes meteoroInScreen{
   0% {right: 0%;}
@@ -58,7 +76,6 @@ html,body {
     }
   100%{background-position: center left 462px;}
 }
-
 @keyframes caer {
   0%{top: 40%;}
   25%{transform:rotateZ(40deg);}
