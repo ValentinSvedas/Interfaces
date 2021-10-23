@@ -20,33 +20,53 @@ html,body {
     position:relative;
     margin:auto;  
   }
-  .naranja,.arboles,.montanas,.nubes,.suelo{
+  .layer1,.layer2,.layer3,.layer4,.layer5,.layer6,.layer7{
     height: 100%;
     width: 100%;
   }
 
 .bird {
-    top: 20%;
+    top: 60%;
     animation:fly.4s steps(5) infinite 0.10ms;
   } 
 
 .pjvolar{
-    top: 20%;
+    top: 60%;
     animation:volar 1s forwards 0.15s , aleteoVolar 0.3s steps(2) forwards;
 }
 
 .pjcaer{
-    top: 0%;
+    top: 40%;
     animation:caer 0.5s forwards 0.1s , aleteoCaer 0.4s steps(1) forwards;
 }
+.meteoro{
+  position: absolute;
+  height: 80px;
+  width: 74px;
+  top: 60%;
+  margin:auto;  
+  background:url(../images/pumpkin.png);/*462x80*/
+  animation: meteoroInScreen 4s linear infinite, pumpkin 0.6s steps(6) infinite;
+
+}
+@keyframes meteoroInScreen{
+  0% {right: 0%;}
+100%{right: 100%;}
+}
+@keyframes pumpkin {
+  0%{background-position: left 0px;
+    }
+  100%{background-position: center left 462px;}
+}
+
 @keyframes caer {
-  0%{top: 0%;}
+  0%{top: 40%;}
   25%{transform:rotateZ(40deg);}
-  100%{top: 20%;}
+  100%{top: 60%;}
 }
 @keyframes aleteoCaer {
   0% { background-position: left top}
-  100% { background-position: top left 110px }
+  100% { background-position: top left 110px;}
 }
 
 @keyframes fly {
@@ -54,11 +74,11 @@ html,body {
   100% { background-position: top left -550px }
 }
 @keyframes volar {
-  0%{top: 10%;}
+  0%{top: 50%;}
   10%{transform: rotateZ(-20deg);}
   25%{transform:rotateZ(-40deg);}
   60%{transform: rotateZ(-10deg);}
-  100%{top: 0%;
+  100%{top: 40%;
       }
 }
 @keyframes aleteoVolar {
@@ -70,37 +90,42 @@ html,body {
 
 /*fondo con parallax*/
 
-.naranja{
-  background:url(../images/fondoNaranja.png) repeat-X;
-  animation: movebg 30s linear infinite;
+.layer1{
+  background:url(../images/layer7.png) top -100px right 550px;
   position:relative;
 }
-.nubes{
-background:url(../images/fondoNube.png) repeat-X;
-animation: movebg 15s linear infinite;
+.layer2{
+background:url(../images/layer6.png) repeat-X;
+animation: movebg 35s linear infinite;
 position:relative;
 }
 
-.montanas{
-background:url(../images/fondoMontañas.png) repeat-X;
-animation: movebg 40s linear infinite;
-position:relative;
-}
-.arboles{
-background:url(../images/fondoArboles.png) repeat-X;
+.layer3{
+background:url(../images/layer5.png) repeat-X;
 animation: movebg 25s linear infinite;
 position:relative;
 }
-.suelo{
-background:url(../images/fondoSuelo.png) repeat-X;
-animation: movefloor 15s linear infinite;
+.layer4{
+background:url(../images/layer4.png) repeat-X;
+animation: movebg 30s linear infinite;
 position:relative;
 }
-
-@keyframes movefloor {
-  0% { background-position:0px } 
-  100% { background-position: -1600px }
+.layer5{
+background:url(../images/layer3.png) repeat-X;
+animation: movebg 17s linear infinite;
+position:relative;
 }
+.layer6{
+  background:url(../images/layer2.png) repeat-X;
+  animation: movebg 10s linear infinite;
+  position:relative;
+  }
+  .layer7{
+  background:url(../images/layer1.png) repeat-X;
+  animation: movebg 10s linear infinite;
+  position:relative;
+  }
+
 @keyframes movebg {
   0% { background-position:0px } 
   100% { background-position: -1920px }
