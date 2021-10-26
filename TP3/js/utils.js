@@ -5,7 +5,7 @@ class Utils {
      * @returns 
      */
     static checkKey(key){ 
-        if(key.keyCode == 38 || key.keyCode == 87){
+        if(key.keyCode == 38 || key.keyCode == 87 || key.keyCode == 32){
             return true;
         }else{
             return false;
