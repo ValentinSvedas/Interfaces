@@ -68,34 +68,47 @@ html,body {
 }
 .layer6{
 background:url(../images/layer6.png) repeat-X;
-animation: movebgReverse 35s linear infinite;
+animation: movebgReverse 40s linear infinite;
 position:relative;
 }
 
 .layer5{
-background:url(../images/layer5.png) repeat-X;
-animation: movebg 25s linear infinite;
+background:url(../images/layer5.png)  repeat-X;
 position:relative;
 }
 .layer4{
 background:url(../images/layer4.png) repeat-X;
-animation: movebg 30s linear infinite;
 position:relative;
 }
 .layer3{
 background:url(../images/layer3.png) repeat-X;
-animation: movebg 17s linear infinite;
 position:relative;
 }
 .layer2{
-  background:url(../images/layer2.png) repeat-X;
-  animation: movebg 10s linear infinite;
+  background:url(../images/layer2.png) 0px repeat-X;
   position:relative;
   }
   .layer1{
-  background:url(../images/layer1.png) repeat-X;
-  animation: movebg 10s linear infinite;
+  background:url(../images/layer1.png) 0px repeat-X;
+ 
   position:relative;
+  }
+  .l5Animation{
+    animation: movebg 25s linear infinite;
+
+  }
+  .l4Animation{
+    animation: movebg 30s linear infinite;   
+  }
+  .l3Animation{
+  animation: movebg 17s linear infinite;  
+  }
+  .l2Animation{
+    animation: movebg 10s linear infinite;
+
+  }
+  .l1Animation{
+    animation: movebg 10s linear infinite;
   }
 
 

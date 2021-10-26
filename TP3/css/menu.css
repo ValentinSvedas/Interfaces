@@ -2,7 +2,7 @@
     font-family: "OctoberCrow";
     src: url("OctoberCrow.ttf");
   }
-.menu{
+.menu, .fin{
     margin:auto;
     position: relative;
     top: 20%;
@@ -11,7 +11,7 @@
     flex-direction: column;
     font-family: OctoberCrow ;
 }
-button.play {
+button{
     background-color: rgba(190, 111, 7, 0.767);
     width: 130px;
     height: 40px;
@@ -23,13 +23,28 @@ button.play {
     text-shadow: 3px 4px #6e502e;
     border-radius: 20%;
 }
+
 p{
     color: white;
     margin-top: 20px;
     margin-left: 65px;
 }
-h1.titulo {
+h1{
     font-size:35px;
     padding: 20px;
     color: rgb(252, 156, 101);
 }
+.gameTxt{
+    margin-left: 65px
+}
+.points{
+    color: white;
+    left: 39%;
+    margin: auto;
+    position: absolute;
+    font-family: OctoberCrow;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+
