@@ -8,6 +8,7 @@ let pluma = document.querySelector(".feather");
 let volando = false;
 let puntos = 0;
 let gameOver = false;
+let loop = null;
 
 function initGame(){
     let bPlay = document.querySelector(".play");
@@ -32,9 +33,10 @@ function startGame(){
     menu.style.display = "none";
     meteoro.style.display = "block";
     pluma.style.display ="block";
+    gameOver = false;
     puntos = 0;
 
-    var lp = window.requestAnimationFrame(gameLoop);
+    loop = window.requestAnimationFrame(gameLoop);
 }
 
 /**
@@ -43,7 +45,7 @@ function startGame(){
 function gameLoop() {
    if ((Utils.isInsidePumpkin(bird.getBoundingClientRect(),meteoro.getBoundingClientRect()))) {
        endGame(false);
-       window.cancelAnimationFrame(lp);
+       window.cancelAnimationFrame(loop);
    }
    if ((Utils.isInsidePluma(bird.getBoundingClientRect(),pluma.getBoundingClientRect()))) {
         puntos+=40
@@ -58,7 +60,7 @@ function gameLoop() {
    if (puntos > 1500) {
        loadBackgraundMove(false);
        endGame(true);
-       window.cancelAnimationFrame(lp);
+       window.cancelAnimationFrame(loop);
     }else{
         tableroP.innerHTML =  puntos++ + "/1500" ;
     } 
