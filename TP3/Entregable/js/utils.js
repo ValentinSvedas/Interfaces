@@ -12,12 +12,20 @@ class Utils {
         }
     }
     
-static isInside(a, b) { //Comprueba la colicion de objetos
+static isInsidePumpkin(a, b) { //Comprueba la colicion de objetos
     return !(
         ((a.y + a.height)-8 < (b.y+10))  || 
         (a.y > (b.y + b.height) )  ||
         ((a.x + a.width) < b.x)  ||
         (a.x > (b.x + b.width)-70) 
+    );
+}
+static isInsidePluma(a,b){
+    return !(
+        ((a.y + a.height)-8 < (b.y))  || 
+        (a.y > (b.y + b.height -60) )  ||
+        ((a.x + a.width) < b.x+50)  ||
+        (a.x > (b.x + b.width)-60) 
     );
 }
 }

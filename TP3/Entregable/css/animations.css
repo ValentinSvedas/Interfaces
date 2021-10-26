@@ -8,8 +8,8 @@
     100%{background-position: top 120px  left -452px;}
   
   }
-  @keyframes meteoroInScreen{
-    0% {right: 0%;
+  @keyframes itemInScreen{
+    0% {right: -5%;;
     }
     100%{right: 100%;;}
   }
@@ -54,3 +54,9 @@
     0% { background-position: -1920px } 
     100% { background-position: 0px }
   }  
+
+  @keyframes featherA {
+    0%{background-position: left 0px;}
+    100%{background-position:  455px top;}
+  }
+  

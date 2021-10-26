@@ -4,8 +4,10 @@ let menu = document.querySelector(".menu");
 let fin= document.querySelector(".fin");
 let tableroP = document.querySelector(".points");
 let gameTxt= document.querySelector(".gameTxt");
+let pluma = document.querySelector(".feather");
 let volando = false;
 let puntos = 0;
+let gameOver = false;
 
 function initGame(){
     let bPlay = document.querySelector(".play");
@@ -14,6 +16,7 @@ function initGame(){
     fin.style.display = "none";
     meteoro.style.display = "none";
     bird.style.display = "none";
+    pluma.style.display ="none";
     
 }
 
@@ -28,26 +31,43 @@ function startGame(){
     fin.style.display = "none";
     menu.style.display = "none";
     meteoro.style.display = "block";
+    pluma.style.display ="block";
     puntos = 0;
 
-    window.requestAnimationFrame(gameLoop);
+    var lp = window.requestAnimationFrame(gameLoop);
 }
 
+/**
+ * Hace un loop del juego mateniendo los puntos contando y si comprobando si es que toca una calabaza o pluma
+ */
 function gameLoop() {
-   if ((Utils.isInside(bird.getBoundingClientRect(),meteoro.getBoundingClientRect()))) {
-    endGame(false);
-    window.cancelAnimationFrame();
+   if ((Utils.isInsidePumpkin(bird.getBoundingClientRect(),meteoro.getBoundingClientRect()))) {
+       endGame(false);
+       window.cancelAnimationFrame(lp);
    }
-   if (puntos > 1000) {
+   if ((Utils.isInsidePluma(bird.getBoundingClientRect(),pluma.getBoundingClientRect()))) {
+        puntos+=40
+        puntos.innerHTML  = puntos++ + "/1500" 
+        pluma.style.display = "none"
+        setTimeout(()=>{
+                if (!gameOver) {
+                pluma.style.display = "block"
+                }
+            }, Math.random()*5000)
+   }
+   if (puntos > 1500) {
        loadBackgraundMove(false);
        endGame(true);
-       window.cancelAnimationFrame();
+       window.cancelAnimationFrame(lp);
     }else{
-        tableroP.innerHTML =  puntos++ + "/1000" ;
+        tableroP.innerHTML =  puntos++ + "/1500" ;
     } 
    window.requestAnimationFrame(gameLoop);
 }
-
+/**
+ * Hace que el personaje salte, si es que esta saltando no puede volver a hacer la accion
+ * @param {*} e 
+ */
 function jump(e){
     if (Utils.checkKey(e)) {
         if (volando == false) {
@@ -64,15 +84,23 @@ function jump(e){
         }
     }
 }
+/**
+ * Muestra el botón de restart
+ */
 function showRestart(){
     fin.style.display = "block";
     restartB = document.querySelector(".restart"); 
     restartB.addEventListener("click", startGame);
 }
 
+/**
+ * Termina el juego dependiendo si ganaste o perdiste
+ * @param {*} cond 
+ */
 function endGame(cond) {
     meteoro.style.display = "none";
-    
+    pluma.style.display = "none";
+    gameOver = true;
     if (cond) {
         gameTxt.innerHTML="Ganaste"
         showRestart();
@@ -85,6 +113,9 @@ function endGame(cond) {
         },800);    
     }
 }
+/**
+ * Hace que el fondo se detenga o se mueva
+ */
 function loadBackgraundMove(activar) {
     let l5 = document.querySelector(".layer5");
     let l4 = document.querySelector(".layer4");
