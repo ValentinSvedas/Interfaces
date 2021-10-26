@@ -8,7 +8,6 @@ let pluma = document.querySelector(".feather");
 let volando = false;
 let puntos = 0;
 let gameOver = false;
-let loop = null;
 
 function initGame(){
     let bPlay = document.querySelector(".play");
@@ -35,8 +34,8 @@ function startGame(){
     pluma.style.display ="block";
     gameOver = false;
     puntos = 0;
+    var loop = window.requestAnimationFrame(gameLoop);
 
-    loop = window.requestAnimationFrame(gameLoop);
 }
 
 /**
