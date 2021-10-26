@@ -1,0 +1,56 @@
+@keyframes die {
+    0%{}
+    100%{top: 75%;}
+  }
+  @keyframes dieAnimation {
+    0%{
+      background-position: top 120px left -90px}
+    100%{background-position: top 120px  left -452px;}
+  
+  }
+  @keyframes meteoroInScreen{
+    0% {right: 0%;
+    }
+    100%{right: 100%;;}
+  }
+  @keyframes pumpkin {
+    0%{background-position: left 0px;}
+    100%{background-position: center left 462px;}
+    
+  }
+  @keyframes caer {
+    0%{top: 40%;}
+    25%{transform:rotateZ(40deg);}
+    100%{top: 60%;}
+  }
+  @keyframes aleteoCaer {
+    0% { background-position: left top}
+    100% { background-position: top left 110px;}
+  }
+  
+  @keyframes fly {
+    0% { background-position: left top}
+    100% { background-position: top left -550px }
+  }
+  @keyframes volar {
+    0%{top: 50%;}
+    10%{transform: rotateZ(-20deg);}
+    25%{transform:rotateZ(-40deg);}
+    60%{transform: rotateZ(-10deg);}
+    100%{top: 40%;
+        }
+  }
+  @keyframes aleteoVolar {
+    0%{background-position: top left }
+    100%{
+      background-position: top left 220px;/*220*/
+    }
+  }
+  @keyframes movebg {
+    0% { background-position:0px } 
+    100% { background-position: -1920px }
+  }
+  @keyframes movebgReverse {
+    0% { background-position: -1920px } 
+    100% { background-position: 0px }
+  }  

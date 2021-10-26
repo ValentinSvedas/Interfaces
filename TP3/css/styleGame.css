@@ -1,4 +1,5 @@
-
+@import url(animations.css);
+@import url(menu.css);
 * {
     margin: 0;
     padding: 0;
@@ -17,10 +18,11 @@ html,body {
     width: 85rem;
     height: 42.5rem;
   }
+
   .bird,.pjvolar,.pjcaer{
     background:url(../images/reven.png); 
     width:83px;
-    height:85px;
+    height:80px;
     right: 35%;
     position:relative;
     margin:auto;  
@@ -47,77 +49,30 @@ html,body {
 .pjdead{
   animation: die 1s forwards 0.20ms, dieAnimation 0.5s steps(4) forwards ;
 }
-@keyframes die {
-  0%{}
-  100%{top: 75%;}
-}
-@keyframes dieAnimation {
-  0%{
-    background-position: top 120px left -90px}
-  100%{background-position: top 120px  left -452px;}
 
-}
 .meteoro{
-  border-radius: 100px;
   position: absolute;
-  height: 80px;
+  height: 75px;
   width: 74px;
   top: 60%;
   margin:auto;  
   background:url(../images/pumpkin.png);
-  animation: meteoroInScreen 4s linear infinite, pumpkin 0.6s steps(6) infinite;
-}
-@keyframes meteoroInScreen{
-  0% {right: 0%;}
-100%{right: 100%;}
-}
-@keyframes pumpkin {
-  0%{background-position: left 0px;
-    }
-  100%{background-position: center left 462px;}
-}
-@keyframes caer {
-  0%{top: 40%;}
-  25%{transform:rotateZ(40deg);}
-  100%{top: 60%;}
-}
-@keyframes aleteoCaer {
-  0% { background-position: left top}
-  100% { background-position: top left 110px;}
-}
-
-@keyframes fly {
-  0% { background-position: left top}
-  100% { background-position: top left -550px }
-}
-@keyframes volar {
-  0%{top: 50%;}
-  10%{transform: rotateZ(-20deg);}
-  25%{transform:rotateZ(-40deg);}
-  60%{transform: rotateZ(-10deg);}
-  100%{top: 40%;
-      }
-}
-@keyframes aleteoVolar {
-  0%{background-position: top left }
-  100%{
-    background-position: top left 220px;/*220*/
-  }
+  animation: meteoroInScreen 3s linear infinite, pumpkin 0.6s steps(6) infinite;
 }
 
 /*fondo con parallax*/
 
-.layer1{
+.layer7{
   background:url(../images/layer7.png) top -100px right 550px;
   position:relative;
 }
-.layer2{
+.layer6{
 background:url(../images/layer6.png) repeat-X;
-animation: movebg 35s linear infinite;
+animation: movebgReverse 35s linear infinite;
 position:relative;
 }
 
-.layer3{
+.layer5{
 background:url(../images/layer5.png) repeat-X;
 animation: movebg 25s linear infinite;
 position:relative;
@@ -127,23 +82,20 @@ background:url(../images/layer4.png) repeat-X;
 animation: movebg 30s linear infinite;
 position:relative;
 }
-.layer5{
+.layer3{
 background:url(../images/layer3.png) repeat-X;
 animation: movebg 17s linear infinite;
 position:relative;
 }
-.layer6{
+.layer2{
   background:url(../images/layer2.png) repeat-X;
   animation: movebg 10s linear infinite;
   position:relative;
   }
-  .layer7{
+  .layer1{
   background:url(../images/layer1.png) repeat-X;
   animation: movebg 10s linear infinite;
   position:relative;
   }
 
-@keyframes movebg {
-  0% { background-position:0px } 
-  100% { background-position: -1920px }
-}
+

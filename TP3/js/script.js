@@ -1,22 +1,24 @@
 let bird = document.querySelector('.bird');
 let meteoro = document.querySelector(".meteoro");
+let menu = document.querySelector(".menu");
+let l6 = document.querySelector(".layer6");
 let volando = false;
 let puntos = 0;
 
 function initGame(){
-    startGame();
+    let bPlay = document.querySelector(".play");
+    let l7 = document.querySelector(".layer7");
+    let l5= document.querySelector(".layer5");
+    let l4 = document.querySelector(".layer4");
+    meteoro.style.display = "none";
+    bPlay.addEventListener("click", startGame);
 }
 
 function startGame(){
-    document.addEventListener('keydown', jump);
-    bird.style.display = "block";
+    menu.style.display = "none";
     meteoro.style.display = "block";
-    let l7 = document.querySelector(".layer7");
-    let l6 = document.querySelector(".layer6");
-    let l5= document.querySelector(".layer5");
-    let l4 = document.querySelector(".layer4");
+    document.addEventListener('keydown', jump);
     window.requestAnimationFrame(gameLoop);
-  
 }
 
 function gameLoop() {
@@ -38,7 +40,7 @@ function jump(e){
             setTimeout(()=>{
                 bird.classList.remove("pjcaer")
                 volando=false;
-            },1600)
+            },1400)
         }
     }
 }
