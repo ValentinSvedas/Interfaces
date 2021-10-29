@@ -50,14 +50,19 @@ html,body {
   animation: die 1s forwards 0.20ms, dieAnimation 0.5s steps(4) forwards ;
 }
 
-.meteoro{
+.meteoro, .meteoro2{
   position: absolute;
   height: 75px;
   width: 74px;
-  top: 60%;
   margin:auto;  
   background:url(../images/pumpkin.png);
   animation: itemInScreen 3s linear infinite, pumpkin 0.6s steps(6) infinite;
+}
+.meteoro{
+  top: 60%;
+}
+.meteoro2{
+  top: 40%;
 }
 .feather{
   position: absolute;

@@ -1,5 +1,6 @@
 let bird = document.querySelector('.bird');
 let meteoro = document.querySelector(".meteoro");
+let meteoro2 = document.querySelector(".meteoro2");
 let menu = document.querySelector(".menu");
 let fin= document.querySelector(".fin");
 let tableroP = document.querySelector(".points");
@@ -15,6 +16,7 @@ function initGame(){
 
     fin.style.display = "none";
     meteoro.style.display = "none";
+    meteoro2.style.display = "none";
     bird.style.display = "none";
     pluma.style.display ="none";
     
@@ -31,6 +33,9 @@ function startGame(){
     fin.style.display = "none";
     menu.style.display = "none";
     meteoro.style.display = "block";
+    setTimeout(()=>{
+        meteoro2.style.display = "block";
+    }, 1500)
     pluma.style.display ="block";
     gameOver = false;
     puntos = 0;
@@ -42,7 +47,7 @@ function startGame(){
  * Hace un loop del juego mateniendo los puntos contando y si comprobando si es que toca una calabaza o pluma
  */
 function gameLoop() {
-   if ((Utils.isInsidePumpkin(bird.getBoundingClientRect(),meteoro.getBoundingClientRect()))) {
+   if ((Utils.isInsidePumpkin(bird.getBoundingClientRect(),meteoro.getBoundingClientRect())) || Utils.isInsidePumpkin2(bird.getBoundingClientRect(),meteoro2.getBoundingClientRect()) ) {
        endGame(false);
        window.cancelAnimationFrame(loop);
    }
@@ -56,12 +61,12 @@ function gameLoop() {
                 }
             }, Math.random()*5000)
    }
-   if (puntos > 1500) {
+   if (puntos > 2000) {
        loadBackgraundMove(false);
        endGame(true);
        window.cancelAnimationFrame(loop);
     }else{
-        tableroP.innerHTML =  puntos++ + "/1500" ;
+        tableroP.innerHTML =  puntos++ + "/2000" ;
     } 
    window.requestAnimationFrame(gameLoop);
 }
@@ -100,6 +105,7 @@ function showRestart(){
  */
 function endGame(cond) {
     meteoro.style.display = "none";
+    meteoro2.style.display = "none";
     pluma.style.display = "none";
     gameOver = true;
     if (cond) {
