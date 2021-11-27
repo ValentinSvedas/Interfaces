@@ -1,0 +1,121 @@
+@font-face {
+    font-family: "Salsa";
+    src: url("../fonts/Salsa-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Alef";
+    src: url("../fonts/Alef-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.backgroundimg {
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+}
+
+.background {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 121.3%;
+    background-color: rgba(0, 0, 0, 0.603);
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    background-color: #484848;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+nav button {
+    margin-top: 15%;
+    margin-right: 100px;
+    padding: 5px;
+    background-color: #FF3333;
+    font-family: Alef;
+    color: white;
+}
+
+nav img {
+    position: absolute;
+    width: 64.76px;
+    height: 59px;
+    left: 36.22px;
+    top: 13px;
+}
+
+.petsocial {
+    position: absolute;
+    width: 159.16px;
+    height: 38px;
+    left: 20px;
+    top: 75px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.fontpetsocial {
+    font-family: Salsa;
+}
+
+section {
+    font-family: Alef;
+    font-style: normal;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    margin-top: 290px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.posts {
+    width: 100%;
+    height: 100%;
+    margin-top: 14%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.posts h2 {
+    padding-left: 20px;
+}
+
+.postDest {
+    background-color: grey;
+    padding: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post {
+    width: 380px;
+    height: 258px;
+    background-color: white;
+}
