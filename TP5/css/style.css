@@ -1,3 +1,5 @@
+@import url('muro.css');
+@import url('animaciones.css');
 @font-face {
     font-family: "Salsa";
     src: url("../fonts/Salsa-Regular.ttf");
@@ -8,8 +10,6 @@
     src: url("../fonts/Alef-Regular.ttf");
 }
 
-@import url(muro.css);
-@import url(animaciones.css);
 * {
     margin: 0;
     padding: 0;
