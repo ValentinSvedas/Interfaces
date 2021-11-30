@@ -1,40 +1,78 @@
 @import url(animaciones.css);
-.iconos {
+.navbar-nav {
+    width: 100%;
     height: 100%;
-    margin-left: 29%;
+    margin-left: 30%;
     margin-right: 38%;
-    display: flex;
-    justify-content: center;
-    justify-content: space-between;
 }
 
-.iconos>button {
+.navbar>button {
     background-color: rgba(255, 255, 255, 0);
 }
 
 .line {
-    width: 82.33px;
+    width: 70px;
     height: 3px;
-    left: 387px;
     margin-top: 3px;
     background: #000000;
     animation: lineChange 0.4s;
 }
 
-button>img:hover {
-    width: 75px;
-    height: 70px;
-    transition: 0.2s;
+.nav-item>img:hover {
+    width: 73px !important;
+    height: 70px !important;
+    transition: 0.2s !important;
+}
+
+.nav-item {
+    margin-top: 1.5%;
 }
 
 .chat {
-    position: fixed;
     background-color: rgb(100, 100, 100);
     width: 30%;
     height: 100%;
-    min-height: 500px;
+    min-height: 700px;
     left: 83%;
     z-index: 1;
+}
+
+.chatA {
+    text-decoration: none;
+    left: 89%;
+    bottom: 31%;
+    color: black;
+    font-family: fantasy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 61px;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    .chat {
+        width: 70%;
+        height: 100%;
+        left: 40%;
+    }
+    .chatA {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1040px) {
+    .chat {
+        display: block;
+    }
 }
 
 .chat>p {
@@ -113,4 +151,52 @@ button>img:hover {
 .contactos>button:hover {
     background-color: rgba(224, 224, 224, 0.384);
     border-radius: 50px;
+}
+
+.containerM {
+    width: 100%;
+    height: 1000px;
+    background-color: #FCFCFC;
+    display: grid;
+    grid-template-columns: 20%;
+}
+
+.publicidad {
+    grid-column: 1;
+    background-color: #C4C4C4;
+    width: 90%;
+    margin: 10%;
+    margin-top: 50%;
+    height: 70%;
+}
+
+.publicaciones {
+    width: 100%;
+    background-color: #FCFCFC;
+    margin-top: 12.5%;
+    grid-column: 2;
+}
+
+.publicar {
+    width: 71%;
+    margin-left: 4%;
+    height: 15%;
+    background-color: #808080;
+    display: flex;
+    flex-direction: column;
+}
+
+.publicar>p {
+    margin-left: 2.5%;
+    padding-top: 1%;
+}
+
+.publicar>input {
+    border: solid 1px black;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    border-radius: 5px;
+    font-family: Abel;
+    font-size: 17px;
 }
