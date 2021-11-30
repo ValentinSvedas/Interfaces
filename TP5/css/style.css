@@ -8,6 +8,8 @@
     src: url("../fonts/Alef-Regular.ttf");
 }
 
+@import url(muro.css);
+@import url(animaciones.css);
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +19,7 @@
     outline: none;
 }
 
-body {
+.cuerpo {
     display: flex;
     flex-direction: column;
     background-image: url("../images/Brown-dog-and-gray-cat-friends_1920x1200.png");
@@ -43,12 +45,15 @@ nav {
     z-index: 1;
     width: 100%;
     height: 100px;
-    background-color: #484848;
-    display: flex;
-    flex-direction: row-reverse;
+    background-color: #062957a1;
 }
 
-nav button {
+.home {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav .iniciarSesion {
     margin-top: 15%;
     margin-right: 100px;
     padding: 5px;
@@ -58,9 +63,12 @@ nav button {
 }
 
 nav img {
-    position: absolute;
     width: 64.76px;
     height: 59px;
+}
+
+.logo {
+    position: absolute;
     left: 36.22px;
     top: 13px;
 }
@@ -93,7 +101,6 @@ section {
     top: 40%;
     left: 8%;
     right: 8%;
-    font-weight: bold;
     text-align: center;
 }
 
@@ -113,7 +120,7 @@ section {
 
 .postDest {
     margin-left: 2%;
-    background-color: grey;
+    background-color: rgb(24, 80, 145);
     padding: 2%;
     max-width: 95%;
     display: flex;
