@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light position-fixed" style="background-color: #062957a1;" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light position-fixed" style="background-color: #062957d2;" id="navbar">
         <a class="navbar-brand">
             <img src="images/logo.png" class="logo position-absolute" alt="logo">
             <p class="petsocial"><span class="fontpetsocial position-absolute">PETSOCIAL</span></p>
@@ -37,7 +37,7 @@
         </div>
     </nav>
 
-    <section class="chat position-absolute collapse show " id="collapseExample">
+    <section class="chat position-fixed collapse show " id="collapseExample">
         <p>Chat</p>
         <div class="contactos ">
             <button class="contacto1 ">
@@ -66,8 +66,71 @@
             </button>
         </div>
     </section>
+    <section class="row containerM">
+        <div class="publicidad col-sm-2">
+            <img src="/images/publicidad1.jpg" alt="" class="img-thumbnail">
+            <img src="/images/publicidad2.jpg" alt="" class="img-thumbnail">
+            <img src="/images/publicidad3.jpg" alt="" class="img-thumbnail">
+        </div>
+        <div class="col-md-9 publicaciones">
+            <div class="publicar">
+                <p>Publicar</p>
+                <div class="d-flex flex-row ">
+                    <input type="text" placeholder="Que estas pensando?"> <button class="buttonPubli">Publicar</button>
+                </div>
+                <button class="uploadimg d-flex flex-row ">
+                    <img src="/images/imagen.png" alt="">
+                    <p>imagen/video</p>
+                </button>
+            </div>
+            <div class="muroPublicaciones d-flex flex-column">
+                <div class="publicacion1">
+                    <button class="contacto1 publiContact">
+                        <div class="foto ">
+                        </div>
+                        <div class="person">
+                            <p class="name">Juan Valdez</p>
+                            <p class="timePost">hace 20 m</p>
+                        </div>
+                    </button>
+                    <div class="bodyText fontActor">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nibh nunc, tempus id nunc vel, rhoncus pharetra urna. Fusce euismod, est eget sagittis ornare, orci nulla commodo tortor, ac lacinia risus nibh id quam. Sed molestie
+                            odio mi, sed semper nulla condimentum eget. Phasellus eros sem, commodo non volutpat id, mollis ut ligula. Aenean non ultricies mauris, et facilisis metus. Vivamus congue eros sit amet nisi volutpat, at volutpat orci blandit.
+                        </p>
+                        <div class="comentAndLik d-flex flex-row">
+                            <div class=" like d-flex flex-row">
+                                <img src="/images/like.png " alt=" ">
+                                <p value="23">23</p>
+                            </div>
+                            <div class="comenRight ">
+                                <p class="fontActor">20 comentarios</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bodyComment">
+                        <div class="buttonsComent d-flex flex-row justify-content-between">
+                            <button>
+                                <p class="hoverBgGrey">Comentar</p>
+                            </button>
+                            <button class="bC hoverBgGrey d-flex flex-row">
+                                <img src="/images/like.png" alt="">
+                                <p class="mgLeft">Me gusta</p>
+                            </button>
+                            <button class="bC hoverBgGrey d-flex flex-row ">
+                                <img src="/images/compartir.png" alt="">
+                                <p class="mgLeft">Compartir</p>
+                            </button>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Ingrese comentario"><button class="buttonComment">Comentar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script src="js/muro.js"></script>
+    <script src="js/muro.js "></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>

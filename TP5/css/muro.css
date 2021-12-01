@@ -67,6 +67,23 @@
     .chatA {
         display: block;
     }
+    .publicar {
+        width: 96% !important;
+        margin-right: 3.5% !important;
+        height: auto !important;
+    }
+    .publicidad,
+    .muroPublicaciones {
+        width: 93% !important;
+        margin-right: 3.5% !important;
+        margin-left: 3.5% !important;
+        height: auto !important;
+    }
+    .publicidad>img {
+        width: 31%;
+        height: auto;
+        margin-left: 1%;
+    }
 }
 
 @media screen and (min-width: 1040px) {
@@ -144,7 +161,7 @@
     margin-top: 3.5%;
 }
 
-.contactos>button {
+button {
     background-color: rgba(255, 255, 255, 0);
 }
 
@@ -154,49 +171,197 @@
 }
 
 .containerM {
-    width: 100%;
-    height: 1000px;
+    padding-top: 125px;
     background-color: #FCFCFC;
-    display: grid;
-    grid-template-columns: 20%;
 }
 
 .publicidad {
-    grid-column: 1;
     background-color: #C4C4C4;
-    width: 90%;
-    margin: 10%;
-    margin-top: 50%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 3%;
 }
 
 .publicaciones {
     width: 100%;
+    height: 100%;
     background-color: #FCFCFC;
     margin-top: 12.5%;
-    grid-column: 2;
 }
 
 .publicar {
-    width: 71%;
-    margin-left: 4%;
-    height: 15%;
+    height: 105px;
+}
+
+.muroPublicaciones,
+.publicar {
+    width: 80%;
+    margin-left: 1.8%;
+}
+
+.publicacion1,
+.publicar {
     background-color: #808080;
-    display: flex;
-    flex-direction: column;
+}
+
+.muroPublicaciones>div {
+    width: 100%;
+    background-color: #808080;
+    margin-bottom: 2%;
+}
+
+.muroPublicaciones {
+    margin-top: 3%;
 }
 
 .publicar>p {
     margin-left: 2.5%;
     padding-top: 1%;
+    margin-bottom: -0.5px;
+    font-family: Actor;
 }
 
-.publicar>input {
+.d-flex>input {
     border: solid 1px black;
     width: 95%;
     margin-left: 2.5%;
-    margin-right: 2.5%;
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
     font-family: Abel;
     font-size: 17px;
+    border-right: none;
+}
+
+.publicidad>img {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.buttonPubli {
+    margin-right: 2.5%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #3770e2;
+    border: 1px solid black;
+    width: 70px;
+}
+
+.buttonPubli:hover {
+    background-color: #094dd483;
+}
+
+.uploadimg:hover,
+.hoverBgGrey:hover {
+    background: #ffffff54;
+    border-radius: 10px;
+}
+
+.uploadimg {
+    margin-top: 1%;
+    margin-left: 2.5%;
+    background: none;
+    width: 16%;
+    height: 30px;
+}
+
+.uploadimg>img {
+    width: 30px;
+    height: 30px;
+}
+
+.uploadimg>p {
+    margin-top: 2%;
+    margin-left: 2%;
+    font-family: Actor;
+}
+
+.publicacion1 {
+    height: auto;
+}
+
+.publicacion1>button {
+    width: 18%;
+    height: 18%;
+    margin: 2%;
+}
+
+.name {
+    margin-bottom: -2px;
+    font-size: 85%;
+}
+
+.timePost {
+    color: #ffffffb9;
+    font-size: 12px;
+    margin-left: -15px;
+}
+
+.person {
+    margin-top: 2%;
+    margin-left: 3px;
+}
+
+.bodyText {
+    margin-left: 4%;
+    margin-right: 4%;
+    text-align: justify;
+}
+
+.like>img,
+.bC>img {
+    width: 18px;
+    height: 18px;
+}
+
+.like,
+.comenRight {
+    margin-top: 2%;
+    height: 25px;
+    color: #ffffffb9;
+}
+
+.like {
+    width: 10%;
+}
+
+.like>p {
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.mgLeft {
+    margin-left: 6px;
+}
+
+.fontActor {
+    font-family: Actor;
+}
+
+.comenRight>p {
+    font-size: 16px;
+}
+
+.comenRight {
+    padding-left: 75%;
+    width: 90%;
+}
+
+.comentAndLik {
+    margin-top: 2%;
+    width: 100%;
+}
+
+.publiContact {
+    width: 50% !important;
+}
+
+.bodyComment {
+    padding-top: 1%;
+    width: 100%;
+    height: 100px;
+    background-color: #C1C1C1;
+    padding-left: 1%;
+    padding-right: 1%;
 }
