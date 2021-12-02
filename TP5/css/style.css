@@ -33,7 +33,7 @@
 .cuerpo {
     display: flex;
     flex-direction: column;
-    background-image: url("../images/Brown-dog-and-gray-cat-friends_1920x1200.png");
+    background-image: url("..images/Brown-dog-and-gray-cat-friends_1920x1200.png");
     background-size: 100%;
 }
 

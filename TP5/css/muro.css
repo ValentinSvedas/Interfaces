@@ -20,10 +20,21 @@
 
 .chat {
     background-color: rgba(255, 255, 255, 0.952);
-    width: 30%;
-    height: 100%;
-    padding-top: 4%;
+    width: 16%;
+    margin-top: 5%;
+    height: 500px;
+    padding-bottom: 10px;
     left: 83%;
+    border: 1px solid rgba(0, 0, 0, 0.507);
+    border-radius: 5px;
+    overflow-y: scroll;
+    white-space: nowrap;
+    box-shadow: 1px 1px 2px black;
+}
+
+.scrollbarVet {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(119, 0, 143, 0.315) white;
 }
 
 .chatA {
@@ -82,12 +93,25 @@
     }
 }
 
-.chat>p {
-    color: rgb(214, 70, 243);
-    margin-left: 5%;
+.titleChat {
+    padding-left: 13%;
     margin-right: 15%;
     margin-top: 2%;
-    font-family: fantasy;
+    width: 100%;
+    border-bottom: rgba(0, 0, 0, 0.082) solid 0.5px;
+}
+
+.titleChat>img {
+    width: 23px;
+    height: 20px;
+    transform: rotate(30deg);
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.titleChat>p {
+    color: rgb(214, 70, 243);
+    font-family: Actor;
     font-style: normal;
     font-weight: normal;
     font-size: 40px;
@@ -119,23 +143,23 @@
 }
 
 .contacto1>.foto {
-    background-image: url("/images/contacto2.jpg");
+    background-image: url("images/contacto2.jpg");
     background-size: 100%;
 }
 
 .contacto2>.foto {
-    background-image: url("/images/Contacto1.jpg");
+    background-image: url("images/Contacto1.jpg");
     background-size: 150%;
     background-repeat: no-repeat;
 }
 
 .contacto3>.foto {
-    background-image: url("/images/contacto3.jpg");
+    background-image: url("images/contacto3.jpg");
     background-size: 100%;
 }
 
 .contacto4>.foto {
-    background-image: url("/images/contacto4.jpg");
+    background-image: url("images/contacto4.jpg");
     background-size: 100%;
 }
 
@@ -436,10 +460,12 @@ button {
 .colorB {
     color: black;
     margin-left: -0.1%;
+    font-weight: 600;
 }
 
 .sugerencias {
     overflow-x: scroll;
+    white-space: nowrap;
     width: 100%;
     margin-top: -2%;
 }
