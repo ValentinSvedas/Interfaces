@@ -33,8 +33,10 @@
     }
     
     .cuerpoB {
+        background: rgba(168, 1, 201, 0.507);
+        background-size: 180%;
+        background-image: url("../images/huellas.png");
         width: 100%;
-        background: rgba(168, 1, 201, 0.733);
         border-radius: 5px;
         border: rgba(0, 0, 0, 0.671) 1px solid;
     }
@@ -129,6 +131,7 @@
         border: solid 1px rgba(0, 0, 0, 0.473);
         border-radius: 3px;
         width: 100% !important;
+        background-color: #b657a183;
     }
     
     .contacto6>.foto,
@@ -180,11 +183,12 @@
         width: 60px;
         height: 30px;
         border-radius: 10px;
+        background-color: white;
         border: rgba(0, 0, 0, 0.400) solid 1px;
     }
     
     .bAgregar:hover {
-        background-color: #61004c83;
+        opacity: 0.7;
     }
     
     .posts {
@@ -204,6 +208,7 @@
     }
     
     .postsEncontrados>.col-6 {
+        background-color: #61004c21;
         width: 47.1% !important;
         height: 50% !important;
         margin-left: 0.6% !important;
@@ -231,6 +236,7 @@
     }
     
     .c9 {
+        background-color: rgba(255, 255, 255, 0);
         border: 0px;
         margin-bottom: -14px;
     }
