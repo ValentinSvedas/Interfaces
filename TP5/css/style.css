@@ -238,3 +238,11 @@ section {
         background-position-y: 0px;
     }
 }
+
+.post p {
+    color: black;
+    padding-top: 7%;
+    font-size: 14px;
+    margin-left: 2%;
+    margin-right: 2%;
+}

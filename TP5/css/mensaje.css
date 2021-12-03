@@ -1,5 +1,5 @@
     @import url('muro.css');
-    @import url('animaciones.css');
+    @import url('style.css');
     @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
     @font-face {
         font-family: "Salsa";
@@ -25,85 +25,10 @@
         outline: none;
     }
     
-    .backgroundimg {
-        position: absolute;
-        max-width: 100%;
-        z-index: -2;
-    }
-    
-    .background {
-        position: absolute;
-        z-index: -1;
-        width: 100%;
-        height: 128%;
-        background-color: rgba(0, 0, 0, 0.603);
-    }
-    
-    #navbarNavAltMarkup {
-        height: 100px;
-    }
-    
-    nav {
-        position: fixed;
-        z-index: 1;
-        width: 100%;
-        height: 100px;
-        background-color: #062957a1;
-    }
-    
-    .home {
-        display: flex;
-        justify-content: flex-end;
-    }
-    
-    nav .iniciarSesion {
-        margin-top: 15%;
-        margin-right: 100px;
-        padding: 5px;
-        background-color: #FF3333;
-        font-family: Alef;
-        color: white;
-    }
-    
-    #navbarNavAltMarkup img,
-    nav img {
-        width: 64.76px;
-        height: 59px;
-    }
-    
-    .logo {
-        position: absolute;
-        left: 36.22px;
-        top: 13px;
-    }
-    
-    .petsocial {
-        position: absolute;
-        width: 159.16px;
-        height: 38px;
-        left: 20px;
-        top: 75px;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 20px;
-        line-height: 25px;
-        color: #FFFFFF;
-    }
-    
-    .fontpetsocial {
-        font-family: Salsa;
-    }
-    
-    section {
-        font-family: Alef;
-        font-style: normal;
-        color: white;
-    }
-    
     .cuerpo-chat {
         width: 95%;
         height: auto;
-        padding-top: 9%;
+        padding-top: 10%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         order: 8px solid rgb(137, 0, 165);

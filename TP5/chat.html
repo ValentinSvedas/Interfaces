@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/mensaje.css">
     <link rel="stylesheet" href="css/muro.css">
     <title>PetSocial</title>
@@ -13,33 +14,34 @@
 <body>
     <div class="contenedor_loader d-flex justify-content-center align-items-center">
         <div class="loader">
-
         </div>
     </div>
     <section class="allBody">
         <nav class="navbar navbar-expand-lg navbar-light position-fixed" style="background-color: rgba(119, 0, 143)" id="navbar">
-            <a class="navbar-brand " href="muro.html">
+            <a class="navbar-brand" href="muro.html">
                 <img src="images/logo.png" class="logo position-absolute" alt="logo">
                 <p class="petsocial"><span class="fontpetsocial position-absolute">PETSOCIAL</span></p>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class=" navbar-toggler-icon"></span>
         </button>
             <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-                <div class="navbar-nav mr-auto d-flex justify-content-between justify-content-center  ">
+                <div class="navbar-nav mr-auto d-flex justify-content-between justify-content-center">
                     <a class="nav-item nav-link homeIcon" href="muro.html">
                         <img src="images/home.png" alt="">
                     </a>
-                    <a class="nav-item nav-link" href="busqueda.html">
-                        <img src="images/busqueda.png" alt=""></a>
-                    <a class="nav-item nav-link" href="chat.html">
+                    <a class="nav-item nav-link busquedaIcon" href="busqueda.html">
+                        <img src="images/busqueda.png" alt="">
+                    </a>
+                    <a class="nav-item nav-link perfilIcon" href="#">
                         <img src="images/perfil.png" alt=""></a>
-                    <a class="chatA nav-item" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <img src="images/chat.png" alt=""></a>
+                    <a class="chatA nav-item " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <img src="images/chat.png" class="chatIcon" alt=""></a>
                     </a>
                 </div>
             </div>
         </nav>
+
         <section class="cuerpo-chat">
             <div class="chat-flex">
                 <section class="conectados">

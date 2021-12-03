@@ -22,13 +22,14 @@
     position: absolute;
     background-size: 100%;
     z-index: -2 !important;
+    background-image: url("../images/dogandcatDur.jpg");
 }
 
 .cont-rectangulo {
     width: 30%;
     height: 370px;
     margin-top: 10%;
-    margin-left: 32%;
+    margin-left: 34.5%;
     margin-right: 34%;
     background-color: rgba(255, 255, 255, 0.466);
     border: 1px solid rgba(0, 0, 0, 0.185);
@@ -96,18 +97,19 @@ h1 {
     text-align: center;
     color: #000000;
     border-radius: 5px;
+    padding-top: 15px;
 }
 
 .user-text {
     position: fixed;
     top: 25.9%;
-    left: 35.5%;
+    left: 38%;
 }
 
 .password-text {
     position: absolute;
-    left: 35.5%;
-    top: 36.5%;
+    left: 38%;
+    top: 37.5%;
 }
 
 .user-text,
@@ -142,6 +144,7 @@ h1 {
     text-align: center;
     color: #ffffff;
     border-radius: 5px;
+    padding-top: 15px;
 }
 
 input {
