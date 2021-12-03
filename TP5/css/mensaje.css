@@ -28,9 +28,11 @@
     .cuerpo-chat {
         width: 95%;
         height: auto;
-        padding-top: 10%;
+        padding-top: 6%;
+        padding-bottom: 3%;
         margin-left: 2.5%;
         margin-right: 2.5%;
+        border-radius: 5px;
         order: 8px solid rgb(137, 0, 165);
         box-sizing: border-box;
         background: rgb(195, 74, 219);
