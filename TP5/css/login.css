@@ -29,7 +29,7 @@
     width: 30%;
     height: 370px;
     margin-top: 10%;
-    margin-left: 34.5%;
+    margin-left: 32.5%;
     margin-right: 34%;
     background-color: rgba(255, 255, 255, 0.466);
     border: 1px solid rgba(0, 0, 0, 0.185);
@@ -103,12 +103,12 @@ h1 {
 .user-text {
     position: fixed;
     top: 25.9%;
-    left: 38%;
+    left: 36.2%;
 }
 
 .password-text {
     position: absolute;
-    left: 38%;
+    left: 36.2%;
     top: 37.5%;
 }
 
