@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,78 +9,92 @@
     <link rel="stylesheet" href="css/muro.css">
     <title>PetSocial</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light position-fixed" style="background-color: #062957a1;" id="navbar">
-        <a class="navbar-brand">
-            <img src="images/logo.png" class="logo position-absolute" alt="logo">
-            <p class="petsocial"><span class="fontpetsocial position-absolute">PETSOCIAL</span></p>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="contenedor_loader d-flex justify-content-center align-items-center">
+        <div class="loader">
+
+        </div>
+    </div>
+    <section class="allBody">
+        <nav class="navbar navbar-expand-lg navbar-light position-fixed" style="background-color: rgba(119, 0, 143)" id="navbar">
+            <a class="navbar-brand">
+                <img src="images/logo.png" class="logo position-absolute" alt="logo">
+                <p class="petsocial"><span class="fontpetsocial position-absolute">PETSOCIAL</span></p>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-            <div class="navbar-nav mr-auto d-flex justify-content-between justify-content-center  ">
-                <a class="nav-item nav-link " href="#">
-                    <img class="homeIcon" src="/images/home.png" alt="">
-                    <div class="line"></div>
-                </a>
-                <a class="nav-item nav-link" href="#">
-                    <img src="/images/busqueda.png" alt=""></a>
-                <a class="nav-item nav-link" href="#">
-                    <img src="/images/perfil.png" alt=""></a>
-                <a class="chatA nav-item" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <img src="/images/chat.png" alt=""></a>
-                </a>
+            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                <div class="navbar-nav mr-auto d-flex justify-content-between justify-content-center  ">
+                    <a class="nav-item nav-link homeIcon" href="muro.html">
+                        <img src="images/home.png" alt="">
+                    </a>
+                    <a class="nav-item nav-link" href="busqueda.html">
+                        <img src="images/busqueda.png" alt=""></a>
+                    <a class="nav-item nav-link" href="chat.html">
+                        <img src="images/perfil.png" alt=""></a>
+                    <a class="chatA nav-item" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <img src="images/chat.png" alt=""></a>
+                    </a>
+                </div>
             </div>
-        </div>
-    </nav>
-        
-           <div class="cuerpo">
-               </div>
-               
-            <section >
-                <div class="conectados"></div>
+        </nav>
+        <section class="cuerpo-chat">
+            <div class="chat-flex">
+                <section class="conectados">
 
-                <h1 class="titulo"> Chats </h1>
+                    <h1 class="titulo"> CHATS </h1>
+                    <div class="chat1">
+                        <div class="img1"></div>
+                        <p class="nom1">Jose Perez</p>
+                    </div>
+                    <div class="chat2">
+                        <div class="img2"></div>
+                        <p class="nom2">Elsa Balero</p>
+                    </div>
+                    <div class="chat3">
+                        <div class="img3"></div>
+                        <p class="nom3">Luis de La Merzed</p>
+                    </div>
+                    <div class="chat4">
 
-                <div class="chat1">
-                    <div class="img1"></div>
-                    <p class="nom1">Jose Perez</p>
-                    
-                </div>
-                <div class="chat2">
-                    <div class="img2"></div>
-                    <p class="nom2">Maria Lopez</p>
-                    
-                </div>
-                <div class="chat3">
-                    <div class="img3"></div>
-                    <p class="nom3">Luis Segura</p>
-                    
-                </div>
-                <div class="chat4">
-                    <div class="img4"></div>
-                    <p class="nom4">Elsa Balero</p>
-                    
-                </div>
-                
-            </section>
+                        <div class="img4"></div>
+                        <p class="nom4">Maria Lopez </p>
+                    </div>
+                </section>
+                <section class="conversacion">
+                    <div class="perfil-chat">
+                        <div class="imgUser1"></div>
+                        <div class="nom-con">
+                            <p class="nombreUser1">Gonzalo Valdez</p>
+                            <p class="ultimaConeccion">Ultima coneccion 11:53 AM</p>
+                        </div>
+                    </div>
+                    <div class="iconos">
+                        <img class="llamada" src="images/pngtree-phone-icon-png-image_1757859.jpg" alt="iconollamada">
+                        <img class="videoconferencia" src="images/videocamera_89329.png" alt="iconovideoconferencia">
+                    </div>
+                    <div class="mensajeria">
+                        <p class="msg1">Hola, como estas?</p>
+                        <p class="msg2">Quisiera consultarte sobre una cesarea</p>
+                        <p class="msg3">Hola buen dia, si pasate por la veterinaria y lo hablamos</p>
+                        <p class="msg4"> Dale mañana paso, gracias</p>
+                    </div>
+                    <div class="btn-chat">
+                        <input class="cargartexto" type="text" value="Insertar Mensaje">
+                        <img class="btn-enviar" src="images/arrowViolet.png" alt="">
+                    </div>
+                </section>
+            </div>
+        </section>
+    </section>
 
-            <section >
+    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
 
-                    <div class="imgUser1"></div>
-                    <p class="nombreUser1">Gonzalo Valdez</p>
-                    <p class="ultimaConeccion">Ultima coneccion 11:53 AM</p>
-                    <img class="llamada" src="images/phone-call-auricular-symbol-in-black_icon-icons.com_56483.png" alt="iconollamada">
-                    <img class="videoconferencia" src="images/videocamera_89329.png" alt="iconovideoconferencia">
-                <div class="mensajeria"></div>
-                <div>
-                    <input class="cargartexto" type="text" value="Insertar Mensaje">
-                    <button id="enviarMensaje"><img src="images/Triangle_34546.png" alt="insertar mensaje"> </button>
-                </div>
-                
-            </section>
-        
-        
 </body>
+
 </html>

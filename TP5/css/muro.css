@@ -20,15 +20,14 @@
 .chat {
     background-color: rgba(255, 255, 255, 0.952);
     width: 16%;
-    margin-top: 5%;
-    height: 500px;
+    margin-top: 4.79%;
+    height: 586px;
     padding-bottom: 10px;
     left: 83%;
     border: 1px solid rgba(0, 0, 0, 0.507);
     border-radius: 5px;
     overflow-y: scroll;
     white-space: nowrap;
-    box-shadow: 1px 1px 2px black;
 }
 
 .scrollbarVet {
@@ -125,20 +124,26 @@
 }
 
 .estado {
-    width: 14px;
-    height: 14px;
+    width: 11px;
+    height: 11px;
     background: #00ee34;
     border-radius: 100%;
-    margin-top: 73%;
-    margin-left: 73%;
-    border: 0.1px solid black;
+    margin-top: 70%;
+    margin-left: 77%;
+    border: 0.1px solid rgba(0, 0, 0, 0.534);
 }
 
-.foto {
+.foto,
+.fotoAmigo {
     width: 60.21px;
     height: 60.1px;
     border-radius: 100%;
     margin: 2%;
+}
+
+.fotoAmigo {
+    width: 40px;
+    height: 40px;
 }
 
 .contacto1>.foto {
@@ -165,8 +170,14 @@
 .contacto1,
 .contacto2,
 .contacto3,
-.contacto4 {
+.contacto4,
+.contacto6,
+.contacto7,
+.contacto8,
+.contacto9,
+.contacto10 {
     width: 100%;
+    margin-bottom: 3%;
     height: 10%;
     display: flex;
     flex-direction: row;
@@ -180,40 +191,40 @@
     margin-top: 3.5%;
 }
 
-button {
+button,
+a {
     background-color: rgba(255, 255, 255, 0);
 }
 
-.contactos>button:hover {
+.contactos>button:hover,
+.contactos>a:hover {
     background-color: rgba(99, 0, 102, 0.527);
     border-radius: 50px;
 }
 
 .containerM {
     padding-top: 65px;
-    background-color: white;
+    background-color: rgb(241, 241, 241);
 }
 
 .publicidad {
-    background-color: white;
     width: 100%;
     height: 100%;
-    margin-bottom: 5%;
-    margin-left: 3%;
+    margin-bottom: 3%;
+    margin-left: 1%;
 }
 
 .publicaciones {
     width: 100%;
     height: 100%;
-    background-color: white;
-    margin-top: 12.5%;
+    margin-left: 0.2%;
 }
 
 .publicar {
     border-radius: 5px;
     color: rgb(255, 255, 255);
     height: 105px;
-    box-shadow: 1px 1px 2px black;
+    border: 1px solid rgba(0, 0, 0, 0.507);
     background-color: rgb(255, 255, 255);
 }
 
@@ -235,7 +246,7 @@ button {
 .sugerencias {
     color: black;
     background-color: white;
-    box-shadow: 1px 1px 2px black;
+    border: 1px solid rgba(0, 0, 0, 0.507);
 }
 
 .muroPublicaciones>div {
@@ -246,7 +257,7 @@ button {
 }
 
 .muroPublicaciones {
-    margin-top: 3%;
+    margin-top: 4%;
 }
 
 .prueba>p {
@@ -269,8 +280,7 @@ button {
 }
 
 .publicidad>img {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: -1%;
 }
 
 .buttonPubli,
@@ -288,28 +298,52 @@ button {
     opacity: 70%;
 }
 
-.uploadimg:hover,
+.videoUp:hover,
+.imagenUp:hover,
 .hoverBgGrey:hover {
-    filter: invert(100%);
+    filter: invert(95%);
 }
 
 .uploadimg {
     margin-top: 1%;
-    margin-left: 2.5%;
+    margin-left: auto;
     background: none;
-    width: 16%;
+    width: 90%;
+    justify-content: space-around;
     height: 30px;
 }
 
-.uploadimg>img {
+.videoUp>img,
+.imagenUp>img {
     width: 30px;
     height: 30px;
 }
 
-.uploadimg>p {
-    margin-top: 2%;
-    margin-left: 2%;
-    font-family: Actor;
+.videoUp,
+.imagenUp {
+    width: 30% !important;
+}
+
+.videoUp>img {
+    margin-top: -1%;
+}
+
+.imagenUp>img {
+    margin-top: -1%;
+}
+
+.videoUp>p,
+.imagenUp>p {
+    padding-left: 11px !important;
+    height: 30px;
+}
+
+.videoUp>p {
+    padding-top: 1.5px !important;
+}
+
+.imagenUp>p {
+    padding-top: 1px !important;
 }
 
 .publicacion1,
@@ -318,10 +352,15 @@ button {
     height: auto;
 }
 
-.publicacion1>button {
+.publicacion1>button,
+.publicacion1>a {
     width: 50%;
     height: 18%;
     margin: 2%;
+}
+
+a {
+    text-decoration: none !important;
 }
 
 .name {
@@ -352,13 +391,18 @@ button {
 .bC>img {
     width: 18px;
     height: 18px;
+    margin-top: 3px;
+}
+
+.bC>.likebC {
+    margin-top: 2px !important;
 }
 
 .like,
 .comenRight {
     margin-top: 2%;
     height: 25px;
-    color: rgba(0, 0, 0, 0.534);
+    color: rgb(0, 0, 0);
     display: block;
 }
 
@@ -388,6 +432,7 @@ button {
     font-size: 100%;
     height: 20px;
     display: inline-block;
+    white-space: nowrap !important;
 }
 
 .comenRight {
@@ -476,11 +521,12 @@ button {
 
 .sugerencia {
     margin: 2%;
-    width: 100%;
+    width: 120px;
     height: 120px;
     border-radius: 100%;
     background-image: url("../images/contacto5.jpg");
     background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .align-items-center>p {
@@ -502,4 +548,62 @@ button {
     width: 100%;
     height: 200px;
     border: rgba(0, 0, 0, 0.568) solid 1px;
+}
+
+.contenedor_loader {
+    position: fixed;
+    width: 94vw;
+    height: 85vh;
+    z-index: 9999;
+    transition: all 1.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    animation: loader 1.5s infinite ease-in-out;
+}
+
+.loader {
+    color: rgba(99, 0, 102, 0.747);
+    font-size: 13px;
+    position: relative;
+    animation-delay: -0.16s;
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 0%;
+}
+
+.loader:before {
+    left: -3.5em;
+    animation-delay: -0.32s;
+}
+
+.loader:after {
+    left: 3.5em;
+}
+
+@keyframes loader {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+.allBody {
+    display: none;
 }

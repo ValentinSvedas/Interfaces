@@ -1,268 +1,391 @@
-@import url('muro2.css');
-@import url('animaciones.css');
-@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
-@font-face {
-    font-family: "Salsa";
-    src: url("../fonts/Salsa-Regular.ttf");
-}
-@font-face {
-    font-family: "Alef";
-    src: url("../fonts/Alef-Regular.ttf");
-}
-@font-face {
-    font-family: "Abel";
-    src: url("../fonts/Abel-Regular.ttf");
-}
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    border: none;
-    outline: none;
-}
-.backgroundimg {
-    position: absolute;
-    max-width: 100%;
-    z-index: -2;
-}
-.background {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 128%;
-    background-color: rgba(0, 0, 0, 0.603);
-}
-#navbarNavAltMarkup {
-    height: 100px;
-}
-nav {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    height: 100px;
-    background-color: #062957a1;
-}
-.home {
-    display: flex;
-    justify-content: flex-end;
-}
-nav .iniciarSesion {
-    margin-top: 15%;
-    margin-right: 100px;
-    padding: 5px;
-    background-color: #FF3333;
-    font-family: Alef;
-    color: white;
-}
-#navbarNavAltMarkup img,
-nav img {
-    width: 64.76px;
-    height: 59px;
-}
-.logo {
-    position: absolute;
-    left: 36.22px;
-    top: 13px;
-}
-.petsocial {
-    position: absolute;
-    width: 159.16px;
-    height: 38px;
-    left: 20px;
-    top: 75px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 25px;
-    color: #FFFFFF;
-}
-
-.fontpetsocial {
-    font-family: Salsa;
-}
-
-section {
-    font-family: Alef;
-    font-style: normal;
-    color: white;
-}
-.cuerpo{
-    position: absolute;
-    width: 1355px;
-    height: 822px;
-    left: 36px;
-    top: 147px;
-    background: #4a74ac;
+    @import url('muro.css');
+    @import url('animaciones.css');
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
+    @font-face {
+        font-family: "Salsa";
+        src: url("../fonts/Salsa-Regular.ttf");
     }
-.conectados{
-    position: absolute;
-    width: 350px;
-    height: 822px;
-    left: 36px;
-    top: 147px;
-    background: #062957a1;
-    order: 1px solid #000000;
-    box-sizing: border-box;
-}
-.titulo{
-    position: absolute;
-    width: 86.26px;
-    height: 61.09px;
-    left: 165.3px;
-    top: 180px;
-    font-family: Abel;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    line-height: 35px;
-    color: #000000;
-}
-.imgUser1{
-    position: absolute;
-    width: 55.37px;
-    height: 58.38px;
-    left: 432px;
-    top: 180px;
-    background-color: green ;
     
-}
-.nombreUser1{
-    position: absolute;
-    width: 151.81px;
-    height: 20.65px;
-    left: 530.26px;
-    top: 220.51px;
-}
-.ultimaConeccion{
-    position: absolute;
-    width: 208.73px;
-    height: 19.71px;
-    left: 530.36px;
-    top: 240.09px;
-    font-family: Abel;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 23px;
-    color: rgba(0, 0, 0, 0.62)
-}
-.img1,.img2,.img3,.img4,.imgUser1{
-    width: 60.21px;
-    height: 60.1px;
-    border-radius: 100%;
-    margin: 2%;
-}
-.img1{
-    position: absolute;
-    width: 69.21px;
-    height: 69.1px;
-    left: 69px;
-    top: 301.17px;
-    background: #3C4600;
-}
-.img2{
-    position: absolute;
-    width: 69.21px;
-    height: 69.1px;
-    left: 69px;
-    top: 394.3px;
-    background: #5A0000;
-}
-.img3{
-    position: absolute;
-    width: 69.21px;
-    height: 69.1px;
-    left: 69px;
-    top: 487.43px;
-    background: #434343;
-}
-.img4{
-    position: absolute;
-    width: 69.21px;
-    height: 69.1px;
-    left: 69px;
-    top: 580.57px;
-    background: #63c904;
-}
-.nom1,.nom2,.nom3,.nom4,.nombreUser1{
-    font-family: Actor;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 24px;
-    color: #eceaeacc;
-}
-.nom1{
-    position: absolute;
-width: 99.3px;
-height: 24.03px;
-left: 175px;
-top: 340px;
-
-}
-.nom2{
-    position: absolute;
-    width: 124.38px;
-    height: 24.03px;
-    left: 175px;
-    top: 433px;
-}
-.nom3{
-    position: absolute;
-    width: 132.41px;
-    height: 24.03px;
-    left: 175px;
-    top: 519px;
-}
-.nom4{
-    position: absolute;
-    width: 124.38px;
-    height: 24.03px;
-    left: 175px;
-    top: 612px;
-}
-.mensajeria{
-    position: absolute;
-    width: 928px;
-    height: 591px;
-    left: 432px;
-    top: 292px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-sizing: border-box;  
-}
-.llamada{
-    position: absolute;
-    width: 32.66px;
-    height: 37.31px;
-    left: 1268px;
-    top: 203px;
-}
-.videoconferencia{
-    position: absolute;
-    width: 41.42px;
-    height: 37.31px;
-    left: 1318.18px;
-    top: 203px;
-}
-.cargartexto{
-    position: absolute;
-    width: 927.2px;
-    height: 38.18px;
-    left: 433px;
-    top: 899px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    border-radius: 8px;
-}
-#enviarMensaje{
-    position: absolute;
-    width: 29.5px;
-    height: 31.07px;
-    left: 1318.18px;
-    top: 903.34px;
-    transform: rotate(90deg);
-}
-
+    @font-face {
+        font-family: "Alef";
+        src: url("../fonts/Alef-Regular.ttf");
+    }
+    
+    @font-face {
+        font-family: "Abel";
+        src: url("../fonts/Abel-Regular.ttf");
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        border: none;
+        outline: none;
+    }
+    
+    .backgroundimg {
+        position: absolute;
+        max-width: 100%;
+        z-index: -2;
+    }
+    
+    .background {
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 128%;
+        background-color: rgba(0, 0, 0, 0.603);
+    }
+    
+    #navbarNavAltMarkup {
+        height: 100px;
+    }
+    
+    nav {
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        height: 100px;
+        background-color: #062957a1;
+    }
+    
+    .home {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    nav .iniciarSesion {
+        margin-top: 15%;
+        margin-right: 100px;
+        padding: 5px;
+        background-color: #FF3333;
+        font-family: Alef;
+        color: white;
+    }
+    
+    #navbarNavAltMarkup img,
+    nav img {
+        width: 64.76px;
+        height: 59px;
+    }
+    
+    .logo {
+        position: absolute;
+        left: 36.22px;
+        top: 13px;
+    }
+    
+    .petsocial {
+        position: absolute;
+        width: 159.16px;
+        height: 38px;
+        left: 20px;
+        top: 75px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 25px;
+        color: #FFFFFF;
+    }
+    
+    .fontpetsocial {
+        font-family: Salsa;
+    }
+    
+    section {
+        font-family: Alef;
+        font-style: normal;
+        color: white;
+    }
+    
+    .cuerpo-chat {
+        width: 95%;
+        height: auto;
+        padding-top: 9%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        order: 8px solid rgb(137, 0, 165);
+        box-sizing: border-box;
+        background: rgb(195, 74, 219);
+    }
+    
+    .chat-flex {
+        display: flex;
+    }
+    
+    .conectados {
+        width: 25%;
+        height: 80%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        background: rgb(255, 255, 255);
+        border: 1px solid rgba(119, 0, 143);
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+    
+    .titulo {
+        width: 30%;
+        height: 80%;
+        padding-top: 5%;
+        margin-left: 35%;
+        margin-right: 5%;
+        font-family: Abel;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 35px;
+        color: #000000;
+        text-align: center;
+    }
+    
+    .chat1,
+    .chat2,
+    .chat3,
+    .chat4 {
+        padding-top: 12%;
+        margin-left: 10%;
+        margin-right: 10%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .img1,
+    .img2,
+    .img3,
+    .img4,
+    .imgUser1 {
+        border-radius: 100%;
+        margin: 2%;
+    }
+    
+    .img1 {
+        width: 12%;
+        height: 12%;
+        padding: 12%;
+        background: url("../images/Contacto2.jpg");
+        background-size: 100%;
+    }
+    
+    .img2 {
+        width: 12%;
+        height: 12%;
+        padding: 12%;
+        background: url("../images/Contacto1.jpg");
+        background-size: 140%;
+    }
+    
+    .img3 {
+        width: 12%;
+        height: 12%;
+        padding: 12%;
+        background: url("../images/Contacto4.jpg");
+        background-size: 100%;
+    }
+    
+    .img4 {
+        width: 12%;
+        height: 12%;
+        padding: 12%;
+        background: #63c904;
+        background: url("../images/Contacto3.jpg");
+        background-size: 100%;
+    }
+    
+    .nom1,
+    .nom2,
+    .nom3,
+    .nom4,
+    .nombreUser1 {
+        font-family: Actor;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 24px;
+        color: #000000;
+    }
+    
+    .nom1 {
+        width: 50%;
+        height: 80%;
+        padding-top: 7%;
+        margin-left: 1%;
+        margin-right: 5%;
+        text-align: center;
+    }
+    
+    .nom2 {
+        width: 50%;
+        height: 80%;
+        padding-top: 7%;
+        margin-left: 1%;
+        margin-right: 5%;
+        text-align: center;
+    }
+    
+    .nom3 {
+        width: 50%;
+        height: 80%;
+        padding-top: 7%;
+        margin-left: 1%;
+        margin-right: 5%;
+        text-align: center;
+    }
+    
+    .nom4 {
+        width: 50%;
+        height: 80%;
+        padding-top: 7%;
+        margin-left: 1%;
+        margin-right: 5%;
+        text-align: center;
+    }
+    
+    .conversacion {
+        width: 67%;
+        height: auto;
+        padding-top: 0%;
+        margin-left: 0%;
+        margin-right: 2.5%;
+        background: #FFFFFF;
+        border: 1px solid rgba(119, 0, 143);
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+    
+    .perfil-chat {
+        padding-top: 2%;
+        margin-left: 2%;
+        margin-right: 2%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .nom-com {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .imgUser1 {
+        width: 5%;
+        height: 5%;
+        padding: 5%;
+        background: url("../images/Contacto5.jpg");
+        background-size: 100%;
+    }
+    
+    .nombreUser1 {
+        width: 100%;
+        height: 20%;
+        padding-top: 25%;
+        margin-left: 0%;
+        margin: right 0;
+    }
+    
+    .ultimaConeccion {
+        font-family: Abel;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 23px;
+        color: rgba(0, 0, 0, 0.62)
+    }
+    
+    .mensajeria {
+        width: 100%;
+        height: 60%;
+        padding-top: 0%;
+        margin-left: 0%;
+        margin-right: 2.5%;
+        background: #FFFFFF;
+        border: 1px solid rgba(119, 0, 143);
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+    
+    .msg1 {
+        padding: 1%;
+        margin-left: 2%;
+        margin-right: 2%;
+        display: flex;
+        justify-content: flex-end;
+        color: #000000;
+        font-size: 18px;
+    }
+    
+    .msg2 {
+        padding: 1%;
+        margin-left: 2%;
+        margin-right: 2%;
+        display: flex;
+        justify-content: flex-end;
+        color: #000000;
+        font-size: 18px;
+    }
+    
+    .msg3 {
+        padding: 1%;
+        margin-left: 2%;
+        margin-right: 2%;
+        display: flex;
+        justify-content: flex-start;
+        color: #000000;
+        font-size: 18px;
+    }
+    
+    .msg4 {
+        padding: 1%;
+        margin-left: 2%;
+        margin-right: 2%;
+        display: flex;
+        justify-content: flex-end;
+        color: #000000;
+        font-size: 18px;
+    }
+    
+    .iconos {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .llamada {
+        width: 5%;
+        height: 10%;
+        padding: 0.2%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    
+    .videoconferencia {
+        width: 5%;
+        height: 10%;
+        padding: 0.2%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    
+    .btn-chat {
+        display: flex;
+    }
+    
+    .cargartexto {
+        width: 95%;
+        height: 60%;
+        padding-top: 0%;
+        margin-left: 0%;
+        margin-right: 0.5%;
+        background: #FFFFFF;
+        border: 1px solid rgba(119, 0, 143);
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+    
+    .btn-enviar {
+        width: 2.5%;
+        height: 2%;
+        padding-top: 0%;
+        margin-left: 1%;
+        margin-right: 1.5%;
+    }

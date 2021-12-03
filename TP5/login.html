@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,36 +8,56 @@
     <link rel="stylesheet" href="css/login.css">
     <title>PetSocial</title>
 </head>
+
 <body class="cuerpo">
-    <div class="background">
-    </div>
-    <img class="backgroundimg" src="/images/Brown-dog-and-gray-cat-friends_1920x1200.png" alt="">
-    <nav>
-        <div>
-           
-            <img src="images/logo.png" alt="logo">
-            <p class="petsocial"><span class="fontpetsocial">PETSOCIAL</span></p>
-            
+    <div class="contenedor_loader d-flex justify-content-center align-items-center">
+        <div class="loader">
+
         </div>
-        
-    </nav>
-    <div id="fullpage">
-    <section>
-        <div class="cont-rectangulo"></div>
-        <h1>Iniciar sesión</h1>
-        <div>
-            <form action="">
-                <input class="user" type="mail" name="user" value="ejemplo@gmal.com"  required>
-                <h5 class="user-text">Email</h5>
-                <input class="password" type="password" name="password" value="Contraseña" required>
-                <h5 class="password-text">Contraseña</h5>
-                <button id="btn-sesion">Inicio sesión</button>
-            </form>
-            <h3>No eres parte? <a href="registro.html">Registrate</a></h3>
+    </div>
+    <section class="allBody">
+        <div class="background">
+        </div>
+        <img class="backgroundimg" src="/images/Brown-dog-and-gray-cat-friends_1920x1200.png" alt="">
+        <nav>
+            <div>
+
+                <img src="images/logo.png" alt="logo">
+                <p class="petsocial"><span class="fontpetsocial">PETSOCIAL</span></p>
+
+            </div>
+
+        </nav>
+        <div id="fullpage">
+            <section>
+                <div class="cont-rectangulo">
+                    <h1>Iniciar sesión</h1>
+
+                    <form action="">
+                        <div class="div-user">
+                            <h5 class="user-text">Email</h5>
+                            <input class="user" type="mail" name="user" value="ejemplo@gmal.com" required>
+
+                        </div>
+                        <div class="div-password">
+                            <h5 class="password-text">Contraseña</h5>
+                            <input class="password" type="password" name="password" value="Contraseña" required>
+                        </div>
+                        <div class="div-btn">
+                            <a href="muro.html" id="btn-sesion">Inicio sesión</a>
+                        </div>
+                    </form>
+                    <h3>No eres parte? <a href="registro.html">Registrate</a></h3>
+                </div>
+            </section>
         </div>
     </section>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.js"></script>
-    <script src="js/js.js"></script>
+
+    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+
 </body>
+
 </html>

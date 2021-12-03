@@ -1,7 +1,6 @@
-@import url('muro2.css');
+@import url('muro.css');
 @import url('animaciones.css');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
-
 @font-face {
     font-family: "Salsa";
     src: url("../fonts/Salsa-Regular.ttf");
@@ -17,16 +16,13 @@
     src: url("../fonts/Abel-Regular.ttf");
 }
 
-
-
-
-
 .cuerpo {
     display: flex;
     flex-direction: column;
-    background-image: url("../images/conejos.jpg");
-    background-size: 100%;
+    overflow-y: scroll;
+    white-space: nowrap;
 }
+
 .backgroundimg {
     position: absolute;
     width: 100%;
@@ -49,8 +45,6 @@ nav {
     display: flex;
     flex-direction: row-reverse;
 }
-
-
 
 nav img {
     position: absolute;
@@ -77,138 +71,129 @@ nav img {
     font-family: Salsa;
 }
 
-.cont-rectangulo{
-    position: absolute;
-width: 430px;
-height: 443px;
-left: 498px;
-top: 184px;
-
-background: #FFFFFF;
+.cont-rectangulo {
+    width: 35%;
+    height: 100%;
+    margin-top: 15%;
+    margin-left: 33%;
+    margin-right: 33%;
+    background: rgba(248, 219, 255, 0.623);
+    order: 1px solid rgb(119, 0, 143);
+    box-sizing: border-box;
+    border-radius: 5px;
 }
 
-section h1{
-position: absolute;
-width: 196px;
-height: 41px;
-left: 524px;
-top: 222px;
-
-font-family: Alef;
-font-style: normal;
-font-weight: bold;
-font-size: 30px;
-line-height: 41px;
-
-text-align: center;
-
-color: #000000;
-
-}
-
-section .user{
-    position: absolute;
-    width: 379px;
-    height: 49px;
-    left: 524px;
-    top: 301px;
-    
-    background: #062957a1   ;
-
-    font-family: Alef;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 30px;
-
-
-    text-align: center;
-
-    color: #FFFFFF;
-
-}
-section .user-text{
-    position: absolute;
-    width: 23px;
-    height: 15px;
-    left: 538px;
-    top: 301px;
-
-    font-family: Alef;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 15px;
-    text-align: center;
-    color: #FFFFFF;
-}
-section .password{
-    position: absolute;
-    width: 379px;
-    height: 49px;
-    left: 525px;
-    top: 371px;
-    
-    background: #062957a1;
-        
-    font-family: Alef;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 30px;
-    
-    
-    text-align: center;
-    
-    color: #FFFFFF;
-}
-section .password-text{
-    position: absolute;
-    width: 62px;
-    height: 15px;
-    left: 538px;
-    top: 373px;
-
-    font-family: Alef;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 15px;
-    text-align: center;
-    color: #FFFFFF;
-    }
- section #btn-sesion{
-    position: absolute;
-    width: 379px;
-    height: 45px;
-    left: 524px;
-    top: 528px;
-    background: #001d3f;
-   
+h1 {
+    width: 60%;
+    height: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 5%;
     font-family: Alef;
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
     line-height: 41px;
-
-
-text-align: center;
-
-color: #FFFFFF;
-
+    color: #000000;
 }
 
-section h3{
+.div-user {
+    width: 80%;
+    height: 60%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 5%;
+}
+
+.user {
+    width: 100%;
+    padding: 2%;
+    background: rgb(119, 0, 143);
+    font-family: Alef;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.user-text {
+    padding-top: 1%;
+    font-family: Alef;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 15px;
+    color: #000000;
+}
+
+.div-password {
+    width: 80%;
+    height: 60%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 5%;
+}
+
+.password {
+    width: 100%;
+    padding: 2%;
+    background: rgb(119, 0, 143);
+    font-family: Alef;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.password-text {
+    font-family: Alef;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 15px;
+    color: #000000;
+}
+
+.div-btn {
+    width: 80%;
+    height: 60%;
+    margin-left: 30%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+#btn-sesion {
+    padding: 1%;
+    background: rgb(119, 0, 143);
+    font-family: Alef;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 41px;
+    text-align: center;
+    color: #FFFFFF;
+    order: 1px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+#btn-sesion:hover {
+    background-color: rgb(248, 219, 255);
+    color: #000000;
+}
+
+h3 {
+    padding-top: 2%;
+    margin-left: 10%;
     font-family: Abel;
     font-style: normal;
-    font-weight: bold; 
+    font-weight: bold;
     font-size: 20px;
     line-height: 41px;
- 
-    position: absolute;
-    width: 258px;
-    height: 24px;
-    left: 525px;
-    top: 579px;
-    
 }

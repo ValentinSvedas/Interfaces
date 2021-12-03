@@ -1,0 +1,273 @@
+    @import url('muro.css');
+    @import url('style.css');
+    @font-face {
+        font-family: "Salsa";
+        src: url("../fonts/Salsa-Regular.ttf");
+    }
+    
+    @font-face {
+        font-family: "Alef";
+        src: url("../fonts/Alef-Regular.ttf");
+    }
+    
+    @font-face {
+        font-family: "Abel";
+        src: url("../fonts/Abel-Regular.ttf");
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        border: none;
+        outline: none;
+    }
+    
+    .cuerpoBusqueda {
+        width: 90%;
+        padding-top: 5%;
+        height: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .cuerpoB {
+        width: 100%;
+        background: rgba(168, 1, 201, 0.733);
+        border-radius: 5px;
+        border: rgba(0, 0, 0, 0.671) 1px solid;
+    }
+    
+    .cont-resultado {
+        width: 90%;
+        margin: auto;
+        border-radius: 5px;
+        height: 450px;
+        background: white;
+        border: 1px solid #000000;
+        margin-bottom: 2%;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        white-space: nowrap;
+    }
+    
+    div>h2 {
+        width: 100%;
+        height: 35px;
+        text-align: center;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        font-family: Abel;
+        font-size: 200%;
+        line-height: 100%;
+        color: #000000;
+    }
+    
+    .busquedaInp {
+        margin-bottom: 1.8%;
+    }
+    
+    .busquedaIcon {
+        border-bottom: solid 2px white;
+    }
+    
+    .d-flex>input {
+        width: 60%;
+        margin-left: 18%;
+    }
+    
+    .buttonComment>img {
+        height: 30px;
+        margin-top: 2px;
+        width: 40px;
+        padding-left: 5px;
+        padding-right: 5px;
+        transform: rotateY(180deg);
+        margin-left: 20%;
+    }
+    
+    .buttonComment>img:hover {
+        background-color: #ffffff48;
+        border-radius: 3px;
+        border: rgba(0, 0, 0, 0.185) 1px solid;
+    }
+    
+    .usuarios {
+        margin-top: 3%;
+        width: 97.3%;
+    }
+    
+    .postsBusqueda {
+        margin-left: 4%;
+        margin-bottom: 5%;
+        font-family: Abel;
+        color: black;
+        background-repeat: no-repeat;
+    }
+    
+    .containerUsers {
+        margin-bottom: 5%;
+    }
+    
+    .usersEncontrados>.col,
+    .postsEncontrados>.col-6 {
+        height: 90px;
+        margin-right: -1%;
+        margin-bottom: 1.6%;
+        background-color: white;
+        border-radius: 5px;
+    }
+    
+    .contacto6,
+    .contacto7,
+    .contacto8,
+    .contacto9,
+    .contacto10 {
+        margin-left: -3% !important;
+        height: 105% !important;
+        border: solid 1px rgba(0, 0, 0, 0.473);
+        border-radius: 3px;
+        width: 100% !important;
+    }
+    
+    .contacto6>.foto,
+    .contacto7>.foto,
+    .contacto8>.foto,
+    .contacto9>.foto,
+    .contacto10>.foto {
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 80px !important;
+        height: 80px;
+    }
+    
+    .contacto6>.foto {
+        background-image: url("../images/contacto6.jpg");
+    }
+    
+    .contacto7>.foto {
+        background-image: url("../images/contacto7.jpg");
+    }
+    
+    .contacto8>.foto {
+        background-image: url("../images/contacto8.jpg");
+    }
+    
+    .contacto9>.foto,
+    .contacto9>.fotoPubli {
+        background-image: url("../images/contacto9.jpg");
+    }
+    
+    .contacto10>.foto {
+        background-image: url("../images/contacto10.jpg");
+    }
+    
+    .contacto6>p,
+    .contacto7>p,
+    .contacto8>p,
+    .contacto9>p,
+    .contacto10>p {
+        padding-top: 15px;
+        padding-left: 2%;
+        width: 40%;
+        font-weight: 600;
+    }
+    
+    .bAgregar {
+        margin-top: 26px;
+        margin-left: 5%;
+        width: 60px;
+        height: 30px;
+        border-radius: 10px;
+        border: rgba(0, 0, 0, 0.400) solid 1px;
+    }
+    
+    .bAgregar:hover {
+        background-color: #61004c83;
+    }
+    
+    .posts {
+        width: 100%;
+        margin-top: -2%;
+        padding-top: 1%;
+    }
+    
+    .posts>p,
+    .usuarios>p {
+        font-size: 20px;
+    }
+    
+    .postsEncontrados {
+        width: 100%;
+        margin-left: -0.3%;
+    }
+    
+    .postsEncontrados>.col-6 {
+        width: 47.1% !important;
+        height: 50% !important;
+        margin-left: 0.6% !important;
+        margin-right: 1%;
+        border: solid 1px rgba(0, 0, 0, 0.473);
+    }
+    
+    .c9>.fotoPubli {
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 50px !important;
+        height: 50px;
+        border-radius: 100%;
+    }
+    
+    .fotoPubli {
+        margin: 1%;
+    }
+    
+    .c9>p {
+        font-size: 14px;
+        padding-top: 8px;
+        padding-left: 3%;
+        padding-bottom: -1%;
+    }
+    
+    .c9 {
+        border: 0px;
+        margin-bottom: -14px;
+    }
+    
+    .textRelleno>p {
+        width: 90%;
+        font-size: 100%;
+        font-size: 80%;
+        padding-left: 14%;
+        text-align: justify;
+        height: auto;
+        white-space: normal !important;
+    }
+    
+    .like>p {
+        margin-left: 6px !important;
+        margin-bottom: 0px !important;
+        font-size: 80%;
+        color: black;
+        padding-top: 6px;
+    }
+    
+    .like>img {
+        width: 13px;
+        height: 13px;
+        margin-top: 8px!important;
+        margin-left: -3px !important;
+    }
+    
+    .comenRight {
+        display: inline !important;
+        width: 19% !important;
+        color: black;
+        font-size: 80%;
+        padding-top: 1.5%;
+    }
+    
+    .comentAndLik {
+        margin-left: 1.6%;
+    }
