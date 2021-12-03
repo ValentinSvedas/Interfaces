@@ -9,27 +9,33 @@
     <title>PetSocial</title>
 </head>
 
-<body class="cuerpo">
+<body>
     <div class="contenedor_loader d-flex justify-content-center align-items-center">
         <div class="loader">
 
         </div>
     </div>
     <section class="allBody">
-        <div class="background">
-        </div>
-        <img class="backgroundimg" src="/images/Brown-dog-and-gray-cat-friends_1920x1200.png" alt="">
-        <nav>
-            <div>
+        <div class="cuerpo">
+            <nav class="navbar navbar-expand-lg navbar-light position-fixed" style="background-color: rgba(119, 0, 143)" id="navbar">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" class="logo position-absolute" alt="logo">
+                    <p class="petsocial"><span class="fontpetsocial position-absolute">PETSOCIAL</span></p>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=" navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                    <div class="navbar-nav mr-auto d-flex justify-content-between justify-content-center">
 
-                <img src="images/logo.png" alt="logo">
-                <p class="petsocial"><span class="fontpetsocial">PETSOCIAL</span></p>
+                    </div>
+                </div>
+            </nav>
 
-            </div>
+            <div id="fullpage">
+                <div class="background">
+                </div>
 
-        </nav>
-        <div id="fullpage">
-            <section>
                 <div class="cont-rectangulo">
                     <h1>Iniciar sesión</h1>
 
@@ -41,15 +47,15 @@
                         </div>
                         <div class="div-password">
                             <h5 class="password-text">Contraseña</h5>
-                            <input class="password" type="password" name="password" value="Contraseña" required>
-                        </div>
-                        <div class="div-btn">
-                            <a href="muro.html" id="btn-sesion">Inicio sesión</a>
+                            <input class="password" type="password" name="password" required>
                         </div>
                     </form>
-                    <h3>No eres parte? <a href="registro.html">Registrate</a></h3>
+                    <div class="div-btn">
+                        <a href="muro.html" class="btn-sesion">Ingresar</a>
+                    </div>
+                    <h3>No eres parte? <a href="">Registrate</a></h3>
                 </div>
-            </section>
+            </div>
         </div>
     </section>
 
