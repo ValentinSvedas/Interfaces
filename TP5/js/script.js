@@ -5,8 +5,8 @@ window.addEventListener('DOMContentLoaded', hidePage);
 
 
 function hidePage() {
-    setTimeout(hideDots, 1500);
-    setTimeout(showPage, 2000);
+    setTimeout(hideDots, 400);
+    setTimeout(showPage, 1000);
 }
 
 function hideDots() {
